@@ -35327,7 +35327,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 148964473}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -0.03, y: -0.5, z: 0}
+  m_LocalPosition: {x: 1.02, y: -0.5, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -36679,7 +36679,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!114 &1159358946
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -36915,8 +36915,9 @@ GameObject:
   - component: {fileID: 1466041800}
   - component: {fileID: 1466041799}
   - component: {fileID: 1466041803}
+  - component: {fileID: 1466041804}
   m_Layer: 7
-  m_Name: Alive
+  m_Name: Enemy1
   m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -36930,7 +36931,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1466041797}
   m_LocalRotation: {x: -0, y: -0, z: 0.0003945425, w: 0.99999994}
-  m_LocalPosition: {x: -3.63, y: -3.76, z: 0}
+  m_LocalPosition: {x: -3.8500001, y: -3.49, z: 0}
   m_LocalScale: {x: 1.111995, y: 1.0740513, z: 0.97348}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -36940,8 +36941,8 @@ Transform:
   - {fileID: 418436689}
   - {fileID: 860151354}
   - {fileID: 1902058267}
-  m_Father: {fileID: 1928183576}
-  m_RootOrder: 0
+  m_Father: {fileID: 0}
+  m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0.045}
 --- !u!61 &1466041799
 BoxCollider2D:
@@ -37074,6 +37075,32 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 76023fb3b075a274ca12d47cf7ce1300, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &1466041804
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1466041797}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 071397172d1fb154e9903a4558094a65, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  entityData: {fileID: 11400000, guid: 78380336f68f1e14485309b285717545, type: 2}
+  wallCheck: {fileID: 148964474}
+  ledgeCheck: {fileID: 529785213}
+  playerCheck: {fileID: 418436689}
+  groundCheck: {fileID: 1902058267}
+  idleStateData: {fileID: 11400000, guid: c3b5bf2cb1c0d984ca17ec00ea4ba5fe, type: 2}
+  moveStateData: {fileID: 11400000, guid: c296978a944f14a4691462ee9d09cfc5, type: 2}
+  playerDetectedData: {fileID: 11400000, guid: e5681137e4391104a9e9c567ccf9520e, type: 2}
+  chargeStateData: {fileID: 11400000, guid: 0d2c8f1019417674e84e73da1e55c6a5, type: 2}
+  lookForPlayerStateData: {fileID: 11400000, guid: dea3a6d7cbe46d948bee19644869bb42, type: 2}
+  meleeAttackStateData: {fileID: 11400000, guid: a578d6db553cb2540a2eb97eaa967838, type: 2}
+  stunStateData: {fileID: 11400000, guid: 08cab229c7376e74b8174ba8c6197d85, type: 2}
+  meleeAttackPosition: {fileID: 860151354}
+  deadStateData: {fileID: 11400000, guid: 0dc7800bc0aefd04b83553d0b98a18a3, type: 2}
 --- !u!1 &1542145633
 GameObject:
   m_ObjectHideFlags: 0
@@ -37442,65 +37469,6 @@ Transform:
   m_Father: {fileID: 819644196}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!1 &1928183575
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 1928183576}
-  - component: {fileID: 1928183577}
-  m_Layer: 0
-  m_Name: Enemy1
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &1928183576
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1928183575}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -0.22, y: 0.27, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children:
-  - {fileID: 1466041798}
-  m_Father: {fileID: 0}
-  m_RootOrder: 4
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &1928183577
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1928183575}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 071397172d1fb154e9903a4558094a65, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  entityData: {fileID: 11400000, guid: 78380336f68f1e14485309b285717545, type: 2}
-  wallCheck: {fileID: 148964474}
-  ledgeCheck: {fileID: 529785213}
-  playerCheck: {fileID: 418436689}
-  groundCheck: {fileID: 1902058267}
-  idleStateData: {fileID: 11400000, guid: c3b5bf2cb1c0d984ca17ec00ea4ba5fe, type: 2}
-  moveStateData: {fileID: 11400000, guid: c296978a944f14a4691462ee9d09cfc5, type: 2}
-  playerDetectedData: {fileID: 11400000, guid: e5681137e4391104a9e9c567ccf9520e, type: 2}
-  chargeStateData: {fileID: 11400000, guid: 0d2c8f1019417674e84e73da1e55c6a5, type: 2}
-  lookForPlayerStateData: {fileID: 11400000, guid: dea3a6d7cbe46d948bee19644869bb42, type: 2}
-  meleeAttackStateData: {fileID: 11400000, guid: a578d6db553cb2540a2eb97eaa967838, type: 2}
-  stunStateData: {fileID: 11400000, guid: 08cab229c7376e74b8174ba8c6197d85, type: 2}
-  meleeAttackPosition: {fileID: 860151354}
-  deadStateData: {fileID: 11400000, guid: 0dc7800bc0aefd04b83553d0b98a18a3, type: 2}
 --- !u!1 &1991687597
 GameObject:
   m_ObjectHideFlags: 0
