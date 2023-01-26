@@ -38,21 +38,26 @@ public class Enemy2 : Entity
     [SerializeField]
     private Transform rangedAttackPosition;
 
+    public override void Awake()
+    {
+        base.Awake();
+
+        moveState = new E2_MoveState(this, StateMachine, "move", moveStateData, this);
+        idleState = new E2_IdleState(this, StateMachine, "idle", idleStateData, this);
+        playerDetectedState = new E2_PlayerDetectedState(this, StateMachine, "playerDetected", playerDetectedStateData, this);
+        meleeAttackState = new E2_MeleeAttackState(this, StateMachine, "meleeAttack", meleeAttackPosition, meleeAttackStateData, this);
+        lookForPlayerState = new E2_LookForPlayerState(this, StateMachine, "lookForPlayer", lookForPlayerStateData, this);
+        stunState = new E2_StunState(this, StateMachine, "stun", stunStateData, this);
+        deadState = new E2_DeadState(this, StateMachine, "dead", deadStateData, this);
+        dodgeState = new E2_DodgeState(this, StateMachine, "dodge", dodgeStateData, this);
+        rangedAttackState = new E2_RangedAttackState(this, StateMachine, "rangedAttackState", rangedAttackPosition, rangedAttackStateData, this);
+    }
+
     public override void Start()
     {
         base.Start();
 
-        moveState = new E2_MoveState(this, stateMachine, "move", moveStateData, this);
-        idleState = new E2_IdleState(this, stateMachine, "idle", idleStateData, this);
-        playerDetectedState = new E2_PlayerDetectedState(this, stateMachine, "playerDetected", playerDetectedStateData, this);
-        meleeAttackState = new E2_MeleeAttackState(this, stateMachine, "meleeAttack", meleeAttackPosition, meleeAttackStateData, this);
-        lookForPlayerState = new E2_LookForPlayerState(this, stateMachine, "lookForPlayer", lookForPlayerStateData, this);
-        stunState = new E2_StunState(this, stateMachine, "stun", stunStateData, this);
-        deadState = new E2_DeadState(this, stateMachine, "dead", deadStateData, this);
-        dodgeState = new E2_DodgeState(this, stateMachine, "dodge", dodgeStateData, this);
-        rangedAttackState = new E2_RangedAttackState(this, stateMachine, "rangedAttackState", rangedAttackPosition, rangedAttackStateData, this);
-
-        stateMachine.Initialize(moveState);
+        StateMachine.Initialize(moveState);
     }
 
     public override void Damage(AttackDetails attackDetails)
@@ -61,20 +66,20 @@ public class Enemy2 : Entity
 
         if(isDead)
         {
-            stateMachine.ChangeState(deadState);
+            StateMachine.ChangeState(deadState);
         }
-        else if(isStunned && stateMachine.currentState != stunState)
+        else if(isStunned && StateMachine.currentState != stunState)
         {
-            stateMachine.ChangeState(stunState);
+            StateMachine.ChangeState(stunState);
         }
         else if(CheckPlayerInMinAgroRange())
         {
-            stateMachine.ChangeState(rangedAttackState);
+            StateMachine.ChangeState(rangedAttackState);
         }
         else if(!CheckPlayerInMinAgroRange())
         {
             lookForPlayerState.SetTurnImmediately(true);
-            stateMachine.ChangeState(lookForPlayerState);
+            StateMachine.ChangeState(lookForPlayerState);
         }
     }
 

@@ -1,5 +1,3 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 public class Enemy1 : Entity
@@ -32,20 +30,25 @@ public class Enemy1 : Entity
     [SerializeField]
     private D_DeadState deadStateData;
 
+    public override void Awake()
+    {
+        base.Awake();
+
+        moveState = new E1_MoveState(this, StateMachine, "move", moveStateData, this);
+        idleState = new E1_IdleState(this, StateMachine, "idle", idleStateData, this);
+        playerDetectedState = new E1_PlayerDetectedState(this, StateMachine, "playerDetected", playerDetectedData, this);
+        chargeState = new E1_ChargeState(this, StateMachine, "charge", chargeStateData, this);
+        lookForPlayerState = new E1_LookForPlayerState(this, StateMachine, "lookForPlayer", lookForPlayerStateData, this);
+        meleeAttackState = new E1_MeleeAttackState(this, StateMachine, "meleeAttack", meleeAttackPosition, meleeAttackStateData, this);
+        stunState = new E1_StunState(this, StateMachine, "stun", stunStateData, this);
+        deadState = new E1_DeadState(this, StateMachine, "dead", deadStateData, this);
+    }
+
     public override void Start()
     {
         base.Start();
 
-        moveState = new E1_MoveState(this, stateMachine, "move", moveStateData, this);
-        idleState = new E1_IdleState(this, stateMachine, "idle", idleStateData, this);
-        playerDetectedState = new E1_PlayerDetectedState(this, stateMachine, "playerDetected", playerDetectedData, this);
-        chargeState = new E1_ChargeState(this, stateMachine, "charge", chargeStateData, this);
-        lookForPlayerState = new E1_LookForPlayerState(this, stateMachine, "lookForPlayer", lookForPlayerStateData, this);
-        meleeAttackState = new E1_MeleeAttackState(this, stateMachine, "meleeAttack", meleeAttackPosition, meleeAttackStateData, this);
-        stunState = new E1_StunState(this, stateMachine, "stun", stunStateData, this);
-        deadState = new E1_DeadState(this, stateMachine, "dead", deadStateData, this);
-
-        stateMachine.Initialize(moveState);
+        StateMachine.Initialize(moveState);
     }
 
     public override void OnDrawGizmos()
@@ -61,11 +64,11 @@ public class Enemy1 : Entity
 
         if(isDead)
         {
-            stateMachine.ChangeState(deadState);
+            StateMachine.ChangeState(deadState);
         }
-        else if (isStunned && stateMachine.currentState != stunState)
+        else if (isStunned && StateMachine.currentState != stunState)
         {
-            stateMachine.ChangeState(stunState);
+            StateMachine.ChangeState(stunState);
         }
     }
 }

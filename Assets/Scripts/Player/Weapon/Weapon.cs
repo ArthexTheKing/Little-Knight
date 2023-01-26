@@ -1,3 +1,4 @@
+using System.Linq;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -87,7 +88,7 @@ public class Weapon : MonoBehaviour
     {
         WeaponAttackDetails attackDetails = weaponData.AttackDetails[attackCounter];
 
-        foreach (IDamageble item in detectedDamagebes)
+        foreach (IDamageble item in detectedDamagebes.ToList())
         {
             item.Damage(attackDetails.damageAmount);
         }
