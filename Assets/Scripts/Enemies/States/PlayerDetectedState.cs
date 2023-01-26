@@ -31,7 +31,7 @@ public class PlayerDetectedState : State
         base.Enter();
 
         performLongRangeAction = false;
-        entity.SetVelocity(0f);
+        core.Movement.SetVelocityZero();
     }
 
     public override void Exit()

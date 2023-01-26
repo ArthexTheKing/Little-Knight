@@ -39,7 +39,7 @@ public class E1_PlayerDetectedState : PlayerDetectedState
         }
         else if (!isDetectingLange)
         {
-            entity.Flip();
+            core.Movement.Flip();
             stateMachine.ChangeState(enemy.moveState);
         }
     }
