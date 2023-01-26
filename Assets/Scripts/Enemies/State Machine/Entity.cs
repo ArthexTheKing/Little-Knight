@@ -14,6 +14,7 @@ public class Entity : MonoBehaviour
 
     public int facingDirection { get; private set; }
 
+    public Core Core { get; private set; }
     public Rigidbody2D rb { get; private set; }
     public Animator anim { get; private set; }
     public AnimationToStatemachine atsm { get; private set; }
@@ -35,6 +36,7 @@ public class Entity : MonoBehaviour
 
     public virtual void Awake()
     {
+        Core = GetComponentInChildren<Core>();
         StateMachine = new FiniteStateMachine();
     }
 
