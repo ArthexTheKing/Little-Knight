@@ -38,6 +38,7 @@ public class AttackState : State
     public override void LogicUpdate()
     {
         base.LogicUpdate();
+        core.Movement.SetVelocityZero();
     }
 
     public override void PhysicsUpdate()

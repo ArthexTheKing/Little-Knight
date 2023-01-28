@@ -45,7 +45,9 @@ public class IdleState : State
     {
         base.LogicUpdate();
 
-        if(Time.time >= startTime + idleTime)
+        core.Movement.SetVelocityZero();
+
+        if (Time.time >= startTime + idleTime)
         {
             isIdleTimeOver = true;
         }
