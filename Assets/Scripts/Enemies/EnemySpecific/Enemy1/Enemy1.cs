@@ -57,18 +57,4 @@ public class Enemy1 : Entity
 
         Gizmos.DrawWireSphere(meleeAttackPosition.position, meleeAttackStateData.attackRadius);
     }
-
-    public override void Damage(AttackDetails attackDetails)
-    {
-        base.Damage(attackDetails);
-
-        if(isDead)
-        {
-            StateMachine.ChangeState(deadState);
-        }
-        else if (isStunned && StateMachine.currentState != stunState)
-        {
-            StateMachine.ChangeState(stunState);
-        }
-    }
 }

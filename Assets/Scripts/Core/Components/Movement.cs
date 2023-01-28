@@ -3,6 +3,7 @@ using UnityEngine;
 public class Movement : CoreComponent
 {
     public int FacingDirection { get; private set; }
+    public bool CanSetVelocity { get; set; }
     public Vector2 CurrentVelocity { get; private set; }
     public Rigidbody2D RB { get; private set; }
 
@@ -15,37 +16,45 @@ public class Movement : CoreComponent
         RB = GetComponentInParent<Rigidbody2D>();
 
         FacingDirection = 1;
+        CanSetVelocity = true;
     }
     
     public void LogicUpdate() => CurrentVelocity = RB.velocity;
 
     #region Velocity Setters
 
-    public void SetVelocityZero() => SetVelocity(Vector2.zero);
+    public void SetVelocityZero()
+    {
+        workspace = Vector2.zero;
+        SetFinalVelocity();
+    }
 
     public void SetVelocity(float velocity, Vector2 angle, int direction)
     {
         angle.Normalize();
         workspace.Set(angle.x * velocity * direction, angle.y * velocity);
-        SetVelocity(workspace);
+        SetFinalVelocity();
     }
 
     public void SetVelocityX(float velocity)
     {
         workspace.Set(velocity, CurrentVelocity.y);
-        SetVelocity(workspace);
+        SetFinalVelocity();
     }
 
     public void SetVelocityY(float velocity)
     {
         workspace.Set(CurrentVelocity.x, velocity);
-        SetVelocity(workspace);
+        SetFinalVelocity();
     }
 
-    private void SetVelocity(Vector2 workspace)
+    private void SetFinalVelocity()
     {
-        RB.velocity = workspace;
-        CurrentVelocity = workspace;
+        if (CanSetVelocity)
+        {
+            RB.velocity = workspace;
+            CurrentVelocity = workspace;
+        }
     }
 
     #endregion
