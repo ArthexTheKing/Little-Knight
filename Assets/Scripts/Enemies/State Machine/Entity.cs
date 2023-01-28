@@ -48,6 +48,7 @@ public class Entity : MonoBehaviour
 
     public virtual void Update()
     {
+        Core.LogicUpdate();
         StateMachine.currentState.LogicUpdate();
 
         anim.SetFloat("yVelocity", Core.Movement.RB.velocity.y);
