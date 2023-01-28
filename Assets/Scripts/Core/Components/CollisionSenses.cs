@@ -2,63 +2,31 @@ using UnityEngine;
 
 public class CollisionSenses : CoreComponent
 {
-    public Transform GroundCheck
-    {
-        get
-        {
-            if (groundCheck) return groundCheck;
-            Debug.LogError("No Ground Check on " + core.transform.parent.name);
-            return null;
-        }
-    }
-    public Transform WallCheck
-    {
-        get
-        {
-            if (wallCheck) return wallCheck;
-            Debug.LogError("No Wall Check on " + core.transform.parent.name);
-            return null;
-        }
-    }
-    public Transform LedgeCheckHorizontal
-    {
-        get
-        {
-            if (ledgeCheckHorizontal) return ledgeCheckHorizontal;
-            Debug.LogError("No Ledge Check Horizontal on " + core.transform.parent.name);
-            return null;
-        }
-    }
-    public Transform LedgeCheckVertical
-    {
-        get
-        {
-            if (ledgeCheckVertical) return ledgeCheckVertical;
-            Debug.LogError("No Ledge Check Vertical on " + core.transform.parent.name);
-            return null;
-        }
-    }
-    public Transform CeilingCheck
-    {
-        get
-        {
-            if (ceilingCheck) return ceilingCheck;
-            Debug.LogError("No Ceiling Check on " + core.transform.parent.name);
-            return null;
-        }
-    }
+    #region Check Transform
 
-    public float GroundCheckRadius { get => collisionSensesData.groundCheckRadius; }
-    public float WallCheckDistance { get => collisionSensesData.wallCheckDistance; }
-    public LayerMask WhatIsGround { get => collisionSensesData.whatIsGround; }
-
+    public Transform GroundCheck => GenericNotImplementedError<Transform>.TryGet(groundCheck, core.transform.parent.name);
+    public Transform WallCheck => GenericNotImplementedError<Transform>.TryGet(wallCheck, core.transform.parent.name);
+    public Transform LedgeCheckHorizontal => GenericNotImplementedError<Transform>.TryGet(ledgeCheckHorizontal, core.transform.parent.name);
+    public Transform LedgeCheckVertical => GenericNotImplementedError<Transform>.TryGet(ledgeCheckVertical, core.transform.parent.name);
+    public Transform CeilingCheck => GenericNotImplementedError<Transform>.TryGet(ceilingCheck, core.transform.parent.name);
+    
     [SerializeField] private Transform groundCheck;
     [SerializeField] private Transform wallCheck;
     [SerializeField] private Transform ledgeCheckHorizontal;
     [SerializeField] private Transform ledgeCheckVertical;
     [SerializeField] private Transform ceilingCheck;
 
+    #endregion
+
+    #region Data
+
+    public float GroundCheckRadius { get => collisionSensesData.groundCheckRadius; }
+    public float WallCheckDistance { get => collisionSensesData.wallCheckDistance; }
+    public LayerMask WhatIsGround { get => collisionSensesData.whatIsGround; }
+
     [SerializeField] private SO_CollisionSensesData collisionSensesData;
+
+    #endregion
 
     private void OnDrawGizmos()
     {
