@@ -54,7 +54,9 @@ public class MeleeAttackState : AttackState
 
         foreach (Collider2D collider in delectedObject)
         {
-            collider.transform.SendMessage("Damage", attackDetails);
+            IDamageble damageble = collider.GetComponent<IDamageble>();
+
+            damageble?.Damage(attackDetails.damageAmount);
         }
     }
 }

@@ -6,10 +6,12 @@ public class Weapon : MonoBehaviour
 {   
     [SerializeField] private SO_WeaponData weaponData;
 
+    private Core core;
     private Animator weaponAnimator;
     private PlayerAttackState attackState;
 
     private readonly List<IDamageble> detectedDamagebes = new();
+    private readonly List<IKnockbackable> detectedKnockbackables = new();
 
     private int attackCounter;
 
@@ -22,20 +24,18 @@ public class Weapon : MonoBehaviour
         gameObject.SetActive(false);
     }
 
-    private void OnCollisionEnter2D(Collision2D collision)
+    private void OnTriggerEnter2D(Collider2D collision)
     {
-        if (TryGetComponent<IDamageble>(out var damageble))
-        {
-            detectedDamagebes.Add(damageble);
-        }
+        if (collision.TryGetComponent(out IDamageble damageble)) detectedDamagebes.Add(damageble);
+        
+        if (collision.TryGetComponent(out IKnockbackable knockbackable)) detectedKnockbackables.Add(knockbackable);
     }
 
-    private void OnCollisionExit2D(Collision2D collision)
+    private void OnTriggerExit2D(Collider2D collision)
     {
-        if (TryGetComponent<IDamageble>(out var damageble))
-        {
-            detectedDamagebes.Remove(damageble);
-        }
+        if (collision.TryGetComponent(out IDamageble damageble)) detectedDamagebes.Remove(damageble);
+        
+        if (collision.TryGetComponent(out IKnockbackable knockbackable)) detectedKnockbackables.Remove(knockbackable);
     }
 
     #endregion
@@ -56,9 +56,10 @@ public class Weapon : MonoBehaviour
 
     #endregion
 
-    public void InitializeWeapon(PlayerAttackState attackState)
+    public void InitializeWeapon(PlayerAttackState attackState, Core core)
     {
         this.attackState = attackState;
+        this.core = core;
     }
 
     public void EnterWeapon()
@@ -91,6 +92,11 @@ public class Weapon : MonoBehaviour
         foreach (IDamageble item in detectedDamagebes.ToList())
         {
             item.Damage(attackDetails.damageAmount);
+        }
+
+        foreach (IKnockbackable item in detectedKnockbackables.ToList())
+        {
+            item.Knockback(attackDetails.knockbackAngle, attackDetails.knockbackStrenght, core.Movement.FacingDirection);
         }
     }
 
