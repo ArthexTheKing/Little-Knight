@@ -1,9 +1,11 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 public class LookForPlayerState : State
 {
+    private Movement Movement => movement != null ? movement : core.GetCoreComponent(ref movement);
+
+    private Movement movement;
+
     protected D_LookForPlayer stateData;
 
     protected bool turnImmediately;
@@ -37,7 +39,7 @@ public class LookForPlayerState : State
         lastTurnTime = startTime;
         amountOfTurnsDone = 0;
 
-        core.Movement.SetVelocityZero();
+        Movement?.SetVelocityZero();
     }
 
     public override void Exit()
@@ -49,18 +51,18 @@ public class LookForPlayerState : State
     {
         base.LogicUpdate();
 
-        core.Movement.SetVelocityZero();
+        Movement?.SetVelocityZero();
 
         if (turnImmediately)
         {
-            core.Movement.Flip();
+            Movement?.Flip();
             lastTurnTime = Time.time;
             amountOfTurnsDone++;
             turnImmediately = false;
         }
         else if (Time.time >= lastTurnTime + stateData.timeBetweenTurns && !isAllTurnsDone)
         {
-            core.Movement.Flip();
+            Movement?.Flip();
             lastTurnTime = Time.time;
             amountOfTurnsDone++;
         }

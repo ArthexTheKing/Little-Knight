@@ -1,16 +1,8 @@
-﻿using UnityEngine;
-
-public class PlayerCrouchMoveState : PlayerGroundedState
+﻿public class PlayerCrouchMoveState : PlayerGroundedState
 {
-    #region Constructors
-
     public PlayerCrouchMoveState(Player player, SO_PlayerData playerData, PlayerStateMachine stateMachine, string animBoolName) : base(player, playerData, stateMachine, animBoolName)
     {
     }
-
-    #endregion
-
-    #region Overrides
 
     public override void Enter()
     {
@@ -25,7 +17,7 @@ public class PlayerCrouchMoveState : PlayerGroundedState
 
         if (!isExitingState)
         {
-            core.Movement.SetVelocityX(playerData.crouchMovementVelocity * xInput);
+            Movement?.SetVelocityX(playerData.crouchMovementVelocity * xInput);
 
             if (xInput == 0 || isTouchingWall)
             {
@@ -44,6 +36,4 @@ public class PlayerCrouchMoveState : PlayerGroundedState
 
         player.SetColliderHeight(playerData.standColliderHeight);
     }
-
-    #endregion
 }

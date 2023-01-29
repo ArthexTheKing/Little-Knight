@@ -1,28 +1,19 @@
-using UnityEngine;
-
 public class PlayerAbilityState : PlayerState
 {
-    #region Protected Variables
+    protected Movement Movement => movement != null ? movement : core.GetCoreComponent(ref movement);
+
+    private CollisionSenses CollisionSenses => collisionSenses != null ? collisionSenses : core.GetCoreComponent(ref collisionSenses);
 
     protected bool isAbilityDone;
 
-    #endregion
-
-    #region Private Variables
+    private Movement movement;
+    private CollisionSenses collisionSenses;
 
     private bool isGrounded;
-
-    #endregion
-
-    #region Contructors
 
     public PlayerAbilityState(Player player, SO_PlayerData playerData, PlayerStateMachine stateMachine, string animBoolName) : base(player, playerData, stateMachine, animBoolName)
     {
     }
-
-    #endregion
-
-    #region Overrides
 
     public override void Enter()
     {
@@ -35,7 +26,10 @@ public class PlayerAbilityState : PlayerState
     {
         base.DoChecks();
 
-        isGrounded = core.CollisionSenses.Grounded;
+        if (CollisionSenses)
+        {
+            isGrounded = CollisionSenses.Grounded;
+        }
     }
 
     public override void LogicUpdate()
@@ -44,7 +38,7 @@ public class PlayerAbilityState : PlayerState
 
         if(isAbilityDone)
         {
-            if(isGrounded && core.Movement.CurrentVelocity.y < 0.01f)
+            if(isGrounded && Movement?.CurrentVelocity.y < 0.01f)
             {
                 stateMachine.ChangeState(player.IdleState);
             }
@@ -54,5 +48,4 @@ public class PlayerAbilityState : PlayerState
             }
         }
     }
-    #endregion
 }

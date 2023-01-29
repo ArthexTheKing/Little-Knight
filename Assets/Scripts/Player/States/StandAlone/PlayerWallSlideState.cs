@@ -1,33 +1,31 @@
-using UnityEngine;
-
 public class PlayerWallSlideState : PlayerState
 {
-    #region Private Variables
+    private Movement Movement => movement != null ? movement : core.GetCoreComponent(ref movement);
+
+    private CollisionSenses CollisionSenses => collisionSenses != null ? collisionSenses : core.GetCoreComponent(ref collisionSenses);
+
+    private Movement movement;
+    private CollisionSenses collisionSenses;
 
     private int xInput;
 
     private bool isGrounded;
     private bool isTouchingWall;
     private bool jumpInput;
-
-    #endregion
-
-    #region Constructors
-
+    
     public PlayerWallSlideState(Player player, SO_PlayerData playerData, PlayerStateMachine stateMachine, string animBoolName) : base(player, playerData, stateMachine, animBoolName)
     {
     }
-
-    #endregion
-
-    #region Overrides
 
     public override void DoChecks()
     {
         base.DoChecks();
 
-        isGrounded = core.CollisionSenses.Grounded;
-        isTouchingWall = core.CollisionSenses.WallFront;
+        if (CollisionSenses)
+        {
+            isGrounded = CollisionSenses.Grounded;
+            isTouchingWall = CollisionSenses.WallFront;
+        }
     }
 
     public override void LogicUpdate()
@@ -48,15 +46,14 @@ public class PlayerWallSlideState : PlayerState
             {
                 stateMachine.ChangeState(player.IdleState);
             }
-            else if (!isTouchingWall || xInput != core.Movement.FacingDirection)
+            else if (!isTouchingWall || xInput != Movement?.FacingDirection)
             {
                 stateMachine.ChangeState(player.InAirState);
             }
             else
             {
-                core.Movement.SetVelocityY(-playerData.wallSlideVelocity);
+                Movement?.SetVelocityY(-playerData.wallSlideVelocity);
             }
         }
     }
-    #endregion
 }

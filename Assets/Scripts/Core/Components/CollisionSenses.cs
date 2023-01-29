@@ -2,6 +2,10 @@ using UnityEngine;
 
 public class CollisionSenses : CoreComponent
 {
+    private Movement Movement => movement != null ? movement : core.GetCoreComponent(ref movement);
+
+    private Movement movement;
+    
     #region Check Transform
 
     public Transform GroundCheck => GenericNotImplementedError<Transform>.TryGet(groundCheck, core.transform.parent.name);
@@ -42,9 +46,9 @@ public class CollisionSenses : CoreComponent
     #region Check Properties
 
     public bool Grounded => Physics2D.OverlapCircle(GroundCheck.position, GroundCheckRadius, WhatIsGround);
-    public bool WallFront => Physics2D.Raycast(WallCheck.position, Vector2.right * core.Movement.FacingDirection, WallCheckDistance, WhatIsGround);
-    public bool WallBack => Physics2D.Raycast(WallCheck.position, Vector2.right * -core.Movement.FacingDirection, WallCheckDistance, WhatIsGround);
-    public bool LedgeHorizontal => Physics2D.Raycast(LedgeCheckHorizontal.position, Vector2.right * core.Movement.FacingDirection, WallCheckDistance, WhatIsGround);
+    public bool WallFront => Physics2D.Raycast(WallCheck.position, Vector2.right * Movement.FacingDirection, WallCheckDistance, WhatIsGround);
+    public bool WallBack => Physics2D.Raycast(WallCheck.position, Vector2.right * -Movement.FacingDirection, WallCheckDistance, WhatIsGround);
+    public bool LedgeHorizontal => Physics2D.Raycast(LedgeCheckHorizontal.position, Vector2.right * Movement.FacingDirection, WallCheckDistance, WhatIsGround);
     public bool LedgeVertical => Physics2D.Raycast(LedgeCheckVertical.position, Vector2.down, WallCheckDistance, WhatIsGround);
     public bool Ceiling => Physics2D.OverlapCircle(CeilingCheck.position, GroundCheckRadius, WhatIsGround);
 

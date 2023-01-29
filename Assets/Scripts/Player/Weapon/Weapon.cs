@@ -3,7 +3,11 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public class Weapon : MonoBehaviour
-{   
+{
+    private Movement Movement => movement != null ? movement : core.GetCoreComponent(ref movement);
+
+    private Movement movement;
+
     [SerializeField] private SO_WeaponData weaponData;
 
     private Core core;
@@ -96,7 +100,7 @@ public class Weapon : MonoBehaviour
 
         foreach (IKnockbackable item in detectedKnockbackables.ToList())
         {
-            item.Knockback(attackDetails.knockbackAngle, attackDetails.knockbackStrenght, core.Movement.FacingDirection);
+            item.Knockback(attackDetails.knockbackAngle, attackDetails.knockbackStrenght, Movement.FacingDirection);
         }
     }
 

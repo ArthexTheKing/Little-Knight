@@ -1,10 +1,10 @@
-using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
-
 public class E1_PlayerDetectedState : PlayerDetectedState
 {
-    private Enemy1 enemy;
+    private Movement Movement => movement != null ? movement : core.GetCoreComponent(ref movement);
+
+    private Movement movement;
+
+    private readonly Enemy1 enemy;
 
     public E1_PlayerDetectedState(Entity entity, FiniteStateMachine stateMachine, string animBoolName, D_PlayerDetected stateData, Enemy1 enemy) : base(entity, stateMachine, animBoolName, stateData)
     {
@@ -39,7 +39,7 @@ public class E1_PlayerDetectedState : PlayerDetectedState
         }
         else if (!isDetectingLange)
         {
-            core.Movement.Flip();
+            Movement?.Flip();
             stateMachine.ChangeState(enemy.moveState);
         }
     }

@@ -2,32 +2,24 @@ using UnityEngine;
 
 public class PlayerGroundedState : PlayerState
 {
-    #region Protected Variables
+    protected Movement Movement => movement != null ? movement : core.GetCoreComponent(ref movement);
+
+    private CollisionSenses CollisionSenses => collisionSenses != null ? collisionSenses : core.GetCoreComponent(ref collisionSenses);
 
     protected int xInput;
     protected int yInput;
-
     protected bool isTouchingWall;
     protected bool isTouchingCeiling;
 
-    #endregion
-
-    #region Private Variables
+    private Movement movement;
+    private CollisionSenses collisionSenses;
 
     private bool jumpInput;
     private bool isGrounded;
 
-    #endregion
-
-    #region Constructors
-
     public PlayerGroundedState(Player player, SO_PlayerData playerData, PlayerStateMachine stateMachine, string animBoolName) : base(player, playerData, stateMachine, animBoolName)
     {
     }
-
-    #endregion
-
-    #region Overrides
 
     public override void Enter()
     {
@@ -40,9 +32,12 @@ public class PlayerGroundedState : PlayerState
     {
         base.DoChecks();
 
-        isGrounded = core.CollisionSenses.Grounded;
-        isTouchingWall = core.CollisionSenses.WallFront;
-        isTouchingCeiling = core.CollisionSenses.Ceiling;
+        if (CollisionSenses)
+        {
+            isGrounded = CollisionSenses.Grounded;
+            isTouchingWall = CollisionSenses.WallFront;
+            isTouchingCeiling = CollisionSenses.Ceiling;
+        }
     }
 
     public override void LogicUpdate()
@@ -53,7 +48,7 @@ public class PlayerGroundedState : PlayerState
         yInput = player.InputHandler.NormInputY;
         jumpInput = player.InputHandler.JumpInput;
 
-        core.Movement.CheckIfShouldFlip(xInput);
+        Movement?.CheckIfShouldFlip(xInput);
 
         if (!isTouchingCeiling)
         {
@@ -72,6 +67,4 @@ public class PlayerGroundedState : PlayerState
             }
         }
     }
-
-    #endregion
 }

@@ -1,16 +1,8 @@
-using UnityEngine;
-
 public class PlayerLandState : PlayerGroundedState
 {
-    #region Constructors
-
     public PlayerLandState(Player player, SO_PlayerData playerData, PlayerStateMachine stateMachine, string animBoolName) : base(player, playerData, stateMachine, animBoolName)
     {
     }
-
-    #endregion
-
-    #region Overrides
 
     public override void LogicUpdate()
     {
@@ -28,6 +20,4 @@ public class PlayerLandState : PlayerGroundedState
             }
         }
     }
-
-    #endregion
 }

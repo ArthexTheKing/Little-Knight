@@ -1,9 +1,11 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 public class AttackState : State
 {
+    private Movement Movement => movement != null ? movement : core.GetCoreComponent(ref movement);
+
+    private Movement movement;
+
     protected Transform attackPosition;
 
     protected bool isAnimationFinished;
@@ -27,7 +29,7 @@ public class AttackState : State
 
         entity.atsm.attackState = this;
         isAnimationFinished = false;
-        core.Movement.SetVelocityZero();
+        Movement?.SetVelocityZero();
     }
 
     public override void Exit()
@@ -38,7 +40,7 @@ public class AttackState : State
     public override void LogicUpdate()
     {
         base.LogicUpdate();
-        core.Movement.SetVelocityZero();
+        Movement?.SetVelocityZero();
     }
 
     public override void PhysicsUpdate()

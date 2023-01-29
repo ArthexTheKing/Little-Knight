@@ -2,7 +2,12 @@ using UnityEngine;
 
 public class PlayerInAirState : PlayerState
 {
-    #region Private Variables
+    private Movement Movement => movement ??= core.GetCoreComponent<Movement>();
+
+    private CollisionSenses CollisionSenses => collisionSenses ??= core.GetCoreComponent<CollisionSenses>();
+
+    private Movement movement;
+    private CollisionSenses collisionSenses;
 
     private int xInput;
 
@@ -20,17 +25,10 @@ public class PlayerInAirState : PlayerState
 
     private float startWallJumpCoyoteTime;
 
-    #endregion
-
-    #region Constructors
-
     public PlayerInAirState(Player player, SO_PlayerData playerData, PlayerStateMachine stateMachine, string animBoolName) : base(player, playerData, stateMachine, animBoolName)
     {
     }
 
-    #endregion
-
-    #region Overrides
     public override void DoChecks()
     {
         base.DoChecks();
@@ -38,10 +36,13 @@ public class PlayerInAirState : PlayerState
         oldIsTouchingWall = isTouchingWall;
         oldIsTouchingWallBack = isTouchingWallBack;
 
-        isGrounded = core.CollisionSenses.Grounded;
-        isTouchingWall = core.CollisionSenses.WallFront;
-        isTouchingWallBack = core.CollisionSenses.WallBack;
-        isTouchingLedge = core.CollisionSenses.LedgeHorizontal;
+        if (CollisionSenses)
+        {
+            isGrounded = CollisionSenses.Grounded;
+            isTouchingWall = CollisionSenses.WallFront;
+            isTouchingWallBack = CollisionSenses.WallBack;
+            isTouchingLedge = CollisionSenses.LedgeHorizontal;
+        }
 
         if (!isTouchingLedge && isTouchingWall)
         {
@@ -71,7 +72,7 @@ public class PlayerInAirState : PlayerState
         {
             stateMachine.ChangeState(player.AttackState);
         }
-        else if(isGrounded && core.Movement.CurrentVelocity.y < 0.01f)
+        else if(isGrounded && Movement?.CurrentVelocity.y < 0.01f)
         {
             stateMachine.ChangeState(player.LandState);
         }
@@ -82,7 +83,7 @@ public class PlayerInAirState : PlayerState
         else if(jumpInput && (isTouchingWall || isTouchingWallBack || wallJumpCoyoteTime))
         {
             StopWallJumpCoyoteTime();
-            isTouchingWall = core.CollisionSenses.WallFront;
+            isTouchingWall = CollisionSenses.WallFront;
             player.WallJumpState.DetermineWallJumpDirection(isTouchingWall);
             stateMachine.ChangeState(player.WallJumpState);
         }
@@ -90,17 +91,17 @@ public class PlayerInAirState : PlayerState
         {
             stateMachine.ChangeState(player.JumpState);
         }
-        else if(isTouchingWall && xInput == core.Movement.FacingDirection && core.Movement.CurrentVelocity.y <= 0f)
+        else if(isTouchingWall && xInput == Movement.FacingDirection && Movement.CurrentVelocity.y <= 0f)
         {
             stateMachine.ChangeState(player.WallSlideState);
         }
         else
         {
-            core.Movement.CheckIfShouldFlip(xInput);
-            core.Movement.SetVelocityX(playerData.movementVelocity * xInput);
+            Movement?.CheckIfShouldFlip(xInput);
+            Movement?.SetVelocityX(playerData.movementVelocity * xInput);
 
-            player.Anim.SetFloat("yVelocity", core.Movement.CurrentVelocity.y);
-            player.Anim.SetFloat("xVelocity", Mathf.Abs(core.Movement.CurrentVelocity.x));
+            player.Anim.SetFloat("yVelocity", Movement.CurrentVelocity.y);
+            player.Anim.SetFloat("xVelocity", Mathf.Abs(Movement.CurrentVelocity.x));
         }
     }
 
@@ -114,10 +115,6 @@ public class PlayerInAirState : PlayerState
         isTouchingWallBack = false;
     }
 
-    #endregion
-
-    #region Public Functions
-
     public void StartCoyoteTime() => coyoteTime = true;
 
     public void StartWallJumpCoyoteTime()
@@ -130,20 +127,16 @@ public class PlayerInAirState : PlayerState
 
     public void SetIsJumping() => isJumping = true;
 
-    #endregion
-
-    #region Private Functions
-
     private void CheckJumpMultiplier()
     {
         if (isJumping)
         {
             if (jumpInputStop)
             {
-                core.Movement.SetVelocityY(core.Movement.CurrentVelocity.y * playerData.variableJumpHeightMultiplier);
+                Movement?.SetVelocityY(Movement.CurrentVelocity.y * playerData.variableJumpHeightMultiplier);
                 isJumping = false;
             }
-            else if (core.Movement.CurrentVelocity.y <= 0f)
+            else if (Movement?.CurrentVelocity.y <= 0f)
             {
                 isJumping = false;
             }
@@ -166,6 +159,4 @@ public class PlayerInAirState : PlayerState
             wallJumpCoyoteTime = false;
         }
     }
-
-    #endregion
 }

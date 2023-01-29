@@ -1,14 +1,12 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 public class Entity : MonoBehaviour
 {
-    #region State Machine
+    private Movement Movement => movement ??= Core.GetCoreComponent<Movement>();
+
+    private Movement movement;
 
     public FiniteStateMachine StateMachine { get; private set; }
-
-    #endregion
 
     public D_Entity entityData;
 
@@ -44,6 +42,7 @@ public class Entity : MonoBehaviour
 
         anim = GetComponent<Animator>();
         atsm = GetComponent<AnimationToStatemachine>();
+        movement = Core.GetCoreComponent<Movement>();
     }
 
     public virtual void Update()
@@ -51,7 +50,7 @@ public class Entity : MonoBehaviour
         Core.LogicUpdate();
         StateMachine.currentState.LogicUpdate();
 
-        anim.SetFloat("yVelocity", Core.Movement.RB.velocity.y);
+        anim.SetFloat("yVelocity", Movement.RB.velocity.y);
 
         if (Time.time >= lastDamageTime + entityData.stunRecoveryTime)
         {
@@ -81,8 +80,8 @@ public class Entity : MonoBehaviour
 
     public virtual void DamageHop(float velocity)
     {
-        velocityWorkspace.Set(Core.Movement.RB.velocity.x, velocity);
-        Core.Movement.RB.velocity = velocityWorkspace;
+        velocityWorkspace.Set(Movement.RB.velocity.x, velocity);
+        Movement.RB.velocity = velocityWorkspace;
     }
 
     public virtual void ResetStunResistance()

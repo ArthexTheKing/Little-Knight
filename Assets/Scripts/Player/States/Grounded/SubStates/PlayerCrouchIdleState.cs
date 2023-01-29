@@ -1,22 +1,14 @@
-﻿using UnityEngine;
-
-public class PlayerCrouchIdleState : PlayerGroundedState
+﻿public class PlayerCrouchIdleState : PlayerGroundedState
 {
-    #region Constructors
-
     public PlayerCrouchIdleState(Player player, SO_PlayerData playerData, PlayerStateMachine stateMachine, string animBoolName) : base(player, playerData, stateMachine, animBoolName)
     {
     }
-
-    #endregion
-
-    #region Overrides
 
     public override void Enter()
     {
         base.Enter();
 
-        core.Movement.SetVelocityZero();
+        Movement?.SetVelocityZero();
         player.SetColliderHeight(playerData.crouchColliderHeight);
     }
 
@@ -43,6 +35,4 @@ public class PlayerCrouchIdleState : PlayerGroundedState
 
         player.SetColliderHeight(playerData.standColliderHeight);
     }
-
-    #endregion
 }

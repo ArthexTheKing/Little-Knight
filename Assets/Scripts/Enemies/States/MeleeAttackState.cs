@@ -1,9 +1,11 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 public class MeleeAttackState : AttackState
 {
+    private Movement Movement => movement != null ? movement : core.GetCoreComponent(ref movement);
+
+    private Movement movement;
+
     protected D_MeleeAttack stateData;
 
     public MeleeAttackState(Entity entity, FiniteStateMachine stateMachine, string animBoolName, Transform attackPosition, D_MeleeAttack stateData) : base(entity, stateMachine, animBoolName, attackPosition)
@@ -56,7 +58,7 @@ public class MeleeAttackState : AttackState
 
             if (collider.TryGetComponent(out IKnockbackable knockbackable))
             {
-                knockbackable.Knockback(stateData.knockbackAngle, stateData.knockbakcStrenght, core.Movement.FacingDirection);
+                knockbackable.Knockback(stateData.knockbackAngle, stateData.knockbakcStrenght, Movement.FacingDirection);
             }
         }
     }
