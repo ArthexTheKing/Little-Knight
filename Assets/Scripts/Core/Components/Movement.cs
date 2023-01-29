@@ -19,7 +19,7 @@ public class Movement : CoreComponent
         CanSetVelocity = true;
     }
     
-    public void LogicUpdate() => CurrentVelocity = RB.velocity;
+    public override void LogicUpdate() => CurrentVelocity = RB.velocity;
 
     #region Velocity Setters
 
