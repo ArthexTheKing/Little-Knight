@@ -9,7 +9,7 @@
                     "name": "Movement",
                     "type": "Value",
                     "id": "632a6297-03c8-48c3-bbba-da7ecdbc993b",
-                    "expectedControlType": "Vector2",
+                    "expectedControlType": "Button",
                     "processors": "",
                     "interactions": "",
                     "initialStateCheck": true
@@ -91,17 +91,6 @@
                 },
                 {
                     "name": "",
-                    "id": "fdbfec60-fddc-4def-9c5e-41a6180a69f5",
-                    "path": "<Gamepad>/leftStick",
-                    "interactions": "",
-                    "processors": "",
-                    "groups": "Gamepad",
-                    "action": "Movement",
-                    "isComposite": false,
-                    "isPartOfComposite": false
-                },
-                {
-                    "name": "",
                     "id": "ca56da41-2c8a-474a-a0eb-e751212feeb0",
                     "path": "<Keyboard>/space",
                     "interactions": "",
@@ -113,19 +102,8 @@
                 },
                 {
                     "name": "",
-                    "id": "263f332c-3544-451b-8290-0819a9a679c4",
-                    "path": "<Gamepad>/leftStick/up",
-                    "interactions": "",
-                    "processors": "",
-                    "groups": "Gamepad",
-                    "action": "Jump",
-                    "isComposite": false,
-                    "isPartOfComposite": false
-                },
-                {
-                    "name": "",
                     "id": "a0a377f9-0867-4f6a-acf1-6685be183765",
-                    "path": "<Mouse>/leftButton",
+                    "path": "<Keyboard>/enter",
                     "interactions": "",
                     "processors": "",
                     "groups": "Tastiera-Mouse",
@@ -148,17 +126,6 @@
                 },
                 {
                     "devicePath": "<Mouse>",
-                    "isOptional": false,
-                    "isOR": false
-                }
-            ]
-        },
-        {
-            "name": "Gamepad",
-            "bindingGroup": "Gamepad",
-            "devices": [
-                {
-                    "devicePath": "<Gamepad>",
                     "isOptional": false,
                     "isOR": false
                 }
