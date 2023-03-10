@@ -5,6 +5,8 @@ public class Death : CoreComponent
 {
     [SerializeField] private GameObject[] deathParticles;
 
+    [SerializeField] private AudioSource deathEnemySoundEffect;
+
     private ParticleManager ParticleManager =>
         particleManager ? particleManager : core.GetCoreComponent(ref particleManager);
     
@@ -21,6 +23,7 @@ public class Death : CoreComponent
         }
         
         core.transform.parent.gameObject.SetActive(false);
+        deathEnemySoundEffect.Play();
     }
 
     private void OnEnable()

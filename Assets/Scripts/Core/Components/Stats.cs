@@ -8,6 +8,7 @@ public class Stats : CoreComponent
     public event Action OnHealthZero;
     
     [SerializeField] private float maxHealth;
+
     private float currentHealth;
 
     protected override void Awake()
