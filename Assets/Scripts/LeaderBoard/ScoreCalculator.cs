@@ -10,6 +10,7 @@ public class ScoreCalculator : MonoBehaviour
     private float totalTime;
     private int timeScore;
     public TextMeshProUGUI highScore;
+    [SerializeField] private GameObject ObjectPreFab;
 
     //factors
     [SerializeField]
@@ -25,7 +26,7 @@ public class ScoreCalculator : MonoBehaviour
     void Update()
     {
         scoreUpdate();
-        highScore.text = string.Format("{000000}", score);
+        highScore.text = string.Format("{0:D5}", score);
     }
 
     public void finalizingScore(){
@@ -35,6 +36,6 @@ public class ScoreCalculator : MonoBehaviour
     }
 
     void scoreUpdate(){
-
+        score = Global.countScore;
     }
 }
