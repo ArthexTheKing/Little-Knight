@@ -4,5 +4,6 @@ using UnityEngine;
 
 public class Global : MonoBehaviour
 {
-    public static int countScore = 0;
+    public static int coinScore = 0;
+    public static int enemyScore = 0;
 }

@@ -14,7 +14,7 @@ public class Coin : MonoBehaviour
     private void OnTriggerEnter2D(Collider2D collision){
         if(collision.tag == "Player"){
             Destroy(gameObject);
-            Global.countScore = Global.countScore + coinFactor;
+            Global.coinScore = Global.coinScore + coinFactor;
         }
     }
 }

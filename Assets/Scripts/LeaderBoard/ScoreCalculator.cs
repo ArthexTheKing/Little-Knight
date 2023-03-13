@@ -36,6 +36,6 @@ public class ScoreCalculator : MonoBehaviour
     }
 
     void scoreUpdate(){
-        score = Global.countScore;
+        score = Global.coinScore + Global.enemyScore;
     }
 }
