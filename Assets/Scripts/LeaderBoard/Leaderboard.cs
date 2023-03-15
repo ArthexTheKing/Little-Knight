@@ -10,6 +10,8 @@ public class Leaderboard : MonoBehaviour
     private List<TextMeshProUGUI> names;
     [SerializeField]
     private List<TextMeshProUGUI> scores;
+    public GameObject mainMenuButton;
+    public static bool isSubmitted = false; 
     private string publicKey = 
         "d1c504871f4a3f5f541a47cae9b14f813df4e609d8681a9c54126509a76422c6";
     private string[] badWords = {"cazz", "pisell", "pene", "merd", "sesso", "scroto",
@@ -32,7 +34,13 @@ public class Leaderboard : MonoBehaviour
         LeaderboardCreator.UploadNewEntry(publicKey, username, 
             score, ((msg) => {
                 //username.Substring(0,4);
-                if(System.Array.IndexOf (badWords, name) != -1) return;
+                if(System.Array.IndexOf (badWords, username) != -1){
+                    print("Devi inserire uno username valido");
+                } 
+                if(username == null){
+                    print("Devi inserire uno username");
+                }
+                else isSubmitted = true;
                 GetLeaderBoard();
         }));
     }

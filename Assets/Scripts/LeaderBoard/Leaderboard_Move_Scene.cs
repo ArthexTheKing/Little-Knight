@@ -16,4 +16,6 @@ public class Leaderboard_Move_Scene : MonoBehaviour
             SceneManager.LoadScene(sceneBuildIndex, LoadSceneMode.Single);
         }
     }
+
+    
 }
