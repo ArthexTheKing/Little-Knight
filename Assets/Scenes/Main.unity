@@ -38305,6 +38305,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   sceneBuildIndex: 1
   sc: {fileID: 1907913118}
+  canvas: {fileID: 937181993}
 --- !u!61 &653907751
 BoxCollider2D:
   m_ObjectHideFlags: 0

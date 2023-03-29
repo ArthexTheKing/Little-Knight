@@ -14,6 +14,9 @@ public class MainMenuManager : MonoBehaviour
         
         if(SceneManager.GetActiveScene().buildIndex == 0)
             options.SetActive(false);
+
+        if(SceneManager.GetActiveScene().buildIndex == 3)
+        options.SetActive(false);
     }
     public void Play(){
         print("Benvenuto giocatore!");
