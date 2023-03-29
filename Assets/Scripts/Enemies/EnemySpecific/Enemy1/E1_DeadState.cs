@@ -34,4 +34,7 @@ public class E1_DeadState : DeadState
     {
         base.PhysicsUpdate();
     }
+    public override void AddScore(){
+        Global.enemyScore += this.enemy.scoreFactor;
+    }
 }
