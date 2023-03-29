@@ -29,8 +29,6 @@ public class Enemy1 : Entity
     private Transform meleeAttackPosition;
     [SerializeField]
     private D_DeadState deadStateData;
-    [SerializeField] 
-    public int scoreFactor;
 
     public override void Awake()
     {
@@ -44,7 +42,6 @@ public class Enemy1 : Entity
         meleeAttackState = new E1_MeleeAttackState(this, StateMachine, "meleeAttack", meleeAttackPosition, meleeAttackStateData, this);
         stunState = new E1_StunState(this, StateMachine, "stun", stunStateData, this);
         deadState = new E1_DeadState(this, StateMachine, "dead", deadStateData, this);
-
     }
 
     public override void Start()

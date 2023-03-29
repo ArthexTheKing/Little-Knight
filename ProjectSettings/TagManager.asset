@@ -6,7 +6,6 @@ TagManager:
   tags:
   - Enemy
   - ParticleContainer
-  - Weapon
   layers:
   - Default
   - TransparentFX
@@ -59,14 +58,8 @@ TagManager:
   - name: Player
     uniqueID: 3416863145
     locked: 0
-  - name: Weapon
-    uniqueID: 2309320501
-    locked: 0
   - name: Foreground Decoration
     uniqueID: 2404135671
-    locked: 0
-  - name: Objects
-    uniqueID: 2072429207
     locked: 0
   - name: UI
     uniqueID: 633956243
