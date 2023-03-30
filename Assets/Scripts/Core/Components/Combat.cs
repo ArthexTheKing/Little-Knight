@@ -21,6 +21,8 @@ public class Combat : CoreComponent, IDamageble, IKnockbackable
 
 	[SerializeField] private float maxKnockbackTime = 0.2f;
 
+	[SerializeField] private AudioSource knockbackSoundEffect;
+
 	private bool isKnockbackActive;
 	private float knockbackStartTime;
 
@@ -39,6 +41,7 @@ public class Combat : CoreComponent, IDamageble, IKnockbackable
 		Movement.CanSetVelocity = false;
 		isKnockbackActive = true;
 		knockbackStartTime = Time.time;
+		knockbackSoundEffect.Play();
 	}
 
 	private void CheckKnockback() {

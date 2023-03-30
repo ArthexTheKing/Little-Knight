@@ -22,6 +22,9 @@ public class PlayerInputHandler : MonoBehaviour
     private float inputHoldTime;
     private float jumpInputStartTime;
 
+    [SerializeField] private AudioSource jumpSoundEffect;
+    [SerializeField] private AudioSource attackSoundEffect;
+
     #endregion
 
     #region Unity Callback Functions
@@ -47,6 +50,7 @@ public class PlayerInputHandler : MonoBehaviour
             JumpInput = true;
             JumpInputStop = false;
             jumpInputStartTime = Time.time;
+            jumpSoundEffect.Play();
         }
 
         if(context.canceled)
@@ -60,6 +64,7 @@ public class PlayerInputHandler : MonoBehaviour
         if (context.started)
         {
             AttackInput = true;
+            attackSoundEffect.Play();
         }
 
         if (context.canceled)

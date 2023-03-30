@@ -32,6 +32,8 @@ public class Player : MonoBehaviour
     [SerializeField]
     private SO_PlayerData playerData;
 
+    [SerializeField] private AudioSource deathSoundEffect;
+
     #endregion
 
     #region Unity Callback Functions
@@ -77,6 +79,10 @@ public class Player : MonoBehaviour
     private void FixedUpdate()
     {
         StateMachine.CurrentState.PhysicsUpdate();
+    }
+
+    private void OnDisable(){
+        deathSoundEffect.Play();
     }
 
     #endregion

@@ -45088,6 +45088,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   inputHoldTime: 0.2
+  jumpSoundEffect: {fileID: 91393211}
+  attackSoundEffect: {fileID: 91393212}
 --- !u!114 &91393204
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -45161,6 +45163,14 @@ MonoBehaviour:
         m_CallState: 2
     m_ActionId: b2756bdc-2237-4aea-b543-0233ca40c334
     m_ActionName: Gameplay/PrimaryAttack[/Mouse/leftButton]
+  - m_PersistentCalls:
+      m_Calls: []
+    m_ActionId: 3853fbe1-b12d-4a07-81bd-bb48870f1035
+    m_ActionName: Gameplay/Pause[/Keyboard/escape]
+  - m_PersistentCalls:
+      m_Calls: []
+    m_ActionId: 97794ee1-12e4-406e-993b-228830adb523
+    m_ActionName: Gameplay/Resume[/Keyboard/r]
   m_NeverAutoSwitchControlSchemes: 0
   m_DefaultControlScheme: 
   m_DefaultActionMap: Gameplay
@@ -45298,6 +45308,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   playerData: {fileID: 11400000, guid: 11984584c48d6fe45af2aefaab1e55e1, type: 2}
+  deathSoundEffect: {fileID: 91393213}
 --- !u!114 &91393210
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -46385,6 +46396,7 @@ MonoBehaviour:
   deathParticles:
   - {fileID: 8725609384921213701, guid: 81d5543a2bbdc2548b504648cae354da, type: 3}
   - {fileID: 5980067851204481825, guid: 068ead70dbb74d344855ee69c0d4e4d8, type: 3}
+  deathEnemySoundEffect: {fileID: 0}
 --- !u!1 &338421728
 GameObject:
   m_ObjectHideFlags: 0
@@ -55891,6 +55903,7 @@ MonoBehaviour:
   deathParticles:
   - {fileID: 8725609384921213701, guid: 81d5543a2bbdc2548b504648cae354da, type: 3}
   - {fileID: 5980067851204481825, guid: 068ead70dbb74d344855ee69c0d4e4d8, type: 3}
+  deathEnemySoundEffect: {fileID: 641771657}
 --- !u!82 &641771657
 AudioSource:
   m_ObjectHideFlags: 0
@@ -57104,6 +57117,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   damageParticles: {fileID: 1951626426659702712, guid: ec0ecf4b8624879488593f32761bbada, type: 3}
   maxKnockbackTime: 0.2
+  knockbackSoundEffect: {fileID: 986730870}
 --- !u!61 &986730869
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -57544,6 +57558,7 @@ MonoBehaviour:
   deathParticles:
   - {fileID: 8725609384921213701, guid: 81d5543a2bbdc2548b504648cae354da, type: 3}
   - {fileID: 5980067851204481825, guid: 068ead70dbb74d344855ee69c0d4e4d8, type: 3}
+  deathEnemySoundEffect: {fileID: 0}
 --- !u!1 &1092657389
 GameObject:
   m_ObjectHideFlags: 0
@@ -57710,6 +57725,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   damageParticles: {fileID: 1951626426659702712, guid: ec0ecf4b8624879488593f32761bbada, type: 3}
   maxKnockbackTime: 0.2
+  knockbackSoundEffect: {fileID: 0}
 --- !u!1 &1260351735
 GameObject:
   m_ObjectHideFlags: 0
@@ -58659,6 +58675,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   damageParticles: {fileID: 1951626426659702712, guid: ec0ecf4b8624879488593f32761bbada, type: 3}
   maxKnockbackTime: 0.2
+  knockbackSoundEffect: {fileID: 0}
 --- !u!1 &1466041797
 GameObject:
   m_ObjectHideFlags: 0
@@ -60484,6 +60501,7 @@ GameObject:
   - component: {fileID: 1970017619}
   - component: {fileID: 1970017618}
   - component: {fileID: 1970017617}
+  - component: {fileID: 1970017621}
   m_Layer: 0
   m_Name: Finish
   m_TagString: Untagged
@@ -60680,6 +60698,21 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 8
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1970017621
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1970017615}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 224b8e5b88545a6439333e6a05cd7886, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  sceneBuildIndex: 0
+  sc: {fileID: 948042880}
+  canvas: {fileID: 1532566896}
 --- !u!1 &1990843196
 GameObject:
   m_ObjectHideFlags: 0
