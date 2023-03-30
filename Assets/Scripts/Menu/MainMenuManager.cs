@@ -35,6 +35,6 @@ public class MainMenuManager : MonoBehaviour
         print("Ritorno al menu principale");
         PauseMenu pm = this.GetComponent<PauseMenu>();
         pm.resumeGame();
-        SceneManager.LoadScene("Main_Menu", LoadSceneMode.Single);
+        SceneManager.LoadScene("StartScreen", LoadSceneMode.Single);
     }
 }
