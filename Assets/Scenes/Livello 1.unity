@@ -60710,7 +60710,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 224b8e5b88545a6439333e6a05cd7886, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  sceneBuildIndex: 0
+  sceneBuildIndex: 1
   sc: {fileID: 948042880}
   canvas: {fileID: 1532566896}
 --- !u!1 &1990843196

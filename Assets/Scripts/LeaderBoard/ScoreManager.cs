@@ -9,7 +9,6 @@ public class ScoreManager : MonoBehaviour
     private TextMeshProUGUI inputScore;
     [SerializeField]
     private TMP_InputField inputName;
-    private int sceneBuildIndex;
     public UnityEvent<string, int> submitScoreEvent;
     public GameObject mainMenuButton;
     public void SubmitScore(){
@@ -27,18 +26,7 @@ public class ScoreManager : MonoBehaviour
     }
 
     public void SceneLoader(){
-        
-        if(SceneManager.GetActiveScene().buildIndex == 0)
-            sceneBuildIndex = 2;
-        else if(SceneManager.GetActiveScene().buildIndex == 3)
-            sceneBuildIndex = 4;
-        else if(SceneManager.GetActiveScene().buildIndex == 4)
-            sceneBuildIndex = 5;
-        else if(SceneManager.GetActiveScene().buildIndex == 5)
-            sceneBuildIndex = 6;
-        else if(SceneManager.GetActiveScene().buildIndex == 6)
-            sceneBuildIndex = 2;
-        print("Switching Scene to: " + sceneBuildIndex);
-            SceneManager.LoadScene(sceneBuildIndex, LoadSceneMode.Single);
+        print("Switching Scene to: " + SceneManager.GetActiveScene().buildIndex + 1 );
+            SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1, LoadSceneMode.Single);
     }
 }
