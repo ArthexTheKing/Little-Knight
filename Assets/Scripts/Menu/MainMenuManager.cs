@@ -5,18 +5,16 @@ using UnityEngine.SceneManagement;
 
 public class MainMenuManager : MonoBehaviour
 {
-    public GameObject gameO;
+    public GameObject mMenu;
     public GameObject options;
 
     public void Start(){
-        if(SceneManager.GetActiveScene().buildIndex == 2)
+        int index = SceneManager.GetActiveScene().buildIndex;
+        if(index == 2 || index == 7 || index == 6)
             OptionsToMenu();
         
-        if(SceneManager.GetActiveScene().buildIndex == 0)
+        if(index == 0 || index == 3 || index == 4 || index == 5 || index == 1)
             options.SetActive(false);
-
-        if(SceneManager.GetActiveScene().buildIndex == 3)
-        options.SetActive(false);
     }
     public void Play(){
         print("Benvenuto giocatore!");
@@ -24,13 +22,13 @@ public class MainMenuManager : MonoBehaviour
     }
 
     public void MenuToOptions(){
-        gameO.SetActive(false);
+        mMenu.SetActive(false);
         options.SetActive(true);
     }
 
     public void OptionsToMenu(){
         options.SetActive(false);
-        gameO.SetActive(true);
+        mMenu.SetActive(true);
     }
 
     public void ReturnToMainMenu(){
