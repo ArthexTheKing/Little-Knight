@@ -5,7 +5,7 @@ using UnityEngine.SceneManagement;
 
 public class MainMenuManager : MonoBehaviour
 {
-    public GameObject mMenu;
+    public GameObject pauseMenu;
     public GameObject options;
 
     public void Start(){
@@ -22,13 +22,13 @@ public class MainMenuManager : MonoBehaviour
     }
 
     public void MenuToOptions(){
-        mMenu.SetActive(false);
+        pauseMenu.SetActive(false);
         options.SetActive(true);
     }
 
     public void OptionsToMenu(){
         options.SetActive(false);
-        mMenu.SetActive(true);
+        pauseMenu.SetActive(true);
     }
 
     public void ReturnToMainMenu(){
