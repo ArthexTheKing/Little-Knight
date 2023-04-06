@@ -67,7 +67,7 @@ TextureImporter:
   platformSettings:
   - serializedVersion: 3
     buildTarget: DefaultTexturePlatform
-    maxTextureSize: 2048
+    maxTextureSize: 4096
     resizeAlgorithm: 0
     textureFormat: -1
     textureCompression: 1
@@ -454,7 +454,6 @@ TextureImporter:
     weights: []
     secondaryTextures: []
     nameFileIdTable:
-      Skeleton Dead_scaled_5x_pngcrushed_13: -1302539542
       Skeleton Dead_scaled_5x_pngcrushed_14: 472846256
       Skeleton Dead_scaled_5x_pngcrushed_3: -252116239
       Skeleton Dead_scaled_5x_pngcrushed_8: -1918639511
@@ -465,6 +464,7 @@ TextureImporter:
       Skeleton Dead_scaled_5x_pngcrushed_10: -1008073289
       Skeleton Dead_scaled_5x_pngcrushed_4: 1993197934
       Skeleton Dead_scaled_5x_pngcrushed_0: 369022381
+      Skeleton Dead_scaled_5x_pngcrushed_13: -1302539542
       Skeleton Dead_scaled_5x_pngcrushed_1: -41787547
       Skeleton Dead_scaled_5x_pngcrushed_11: 367820997
       Skeleton Dead_scaled_5x_pngcrushed_2: 1251164852
