@@ -42924,10 +42924,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 91393202}
     m_Modifications:
-    - target: {fileID: 1800175656, guid: 8e0f3a1315cb1654a987ceaa3efa3440, type: 3}
-      propertyPath: attackCounterResetCooldown
-      value: 3
-      objectReference: {fileID: 0}
     - target: {fileID: 1914831276015094802, guid: 8e0f3a1315cb1654a987ceaa3efa3440, type: 3}
       propertyPath: m_RootOrder
       value: 1
