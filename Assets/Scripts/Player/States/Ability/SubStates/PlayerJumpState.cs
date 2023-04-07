@@ -2,7 +2,7 @@ public class PlayerJumpState : PlayerAbilityState
 {
     private int amountOfJumpsLeft;
 
-    public PlayerJumpState(Player player, SO_PlayerData playerData, PlayerStateMachine stateMachine, string animBoolName) : base(player, playerData, stateMachine, animBoolName)
+    public PlayerJumpState(Player player, string animBoolName) : base(player, animBoolName)
     {
         amountOfJumpsLeft = this.playerData.amountOfJumps;
     }

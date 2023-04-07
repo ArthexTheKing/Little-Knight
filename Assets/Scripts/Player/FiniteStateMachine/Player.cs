@@ -1,9 +1,6 @@
 using UnityEngine;
 
-public class Player : MonoBehaviour
-{
-    #region State Variables
-
+public class Player : MonoBehaviour {
     public PlayerStateMachine StateMachine { get; private set; }
 
     public PlayerIdleState IdleState { get; private set; }
@@ -18,46 +15,39 @@ public class Player : MonoBehaviour
     public PlayerCrouchMoveState CrouchMoveState { get; private set; }
     public PlayerAttackState AttackState { get; private set; }
 
-    #endregion
-
-    #region Components
-
     public Core Core { get; private set; }
     public Animator Anim { get; private set; }
     public Rigidbody2D RB { get; private set; }
     public BoxCollider2D MovementCollider { get; private set; }
     public PlayerInputHandler InputHandler { get; private set; }
 
-    [SerializeField]
-    private SO_PlayerData playerData;
-
     [SerializeField] private AudioSource deathSoundEffect;
+    
+    [field: SerializeField] public PlayerDataSO PlayerDataSO { get; private set; }
 
-    #endregion
+    private Weapon weapon;
 
-    #region Unity Callback Functions
-
-    private void Awake()
-    {
+    private void Awake() {
         Core = GetComponentInChildren<Core>();
+
+        weapon = transform.Find("Weapon").GetComponent<Weapon>();
 
         StateMachine = new PlayerStateMachine();
 
-        IdleState = new PlayerIdleState(this, playerData, StateMachine, "idle");
-        MoveState = new PlayerMoveState(this, playerData, StateMachine, "move");
-        JumpState = new PlayerJumpState(this, playerData, StateMachine, "inAir");
-        InAirState = new PlayerInAirState(this, playerData, StateMachine, "inAir");
-        LandState = new PlayerLandState(this, playerData, StateMachine, "land");
-        WallSlideState = new PlayerWallSlideState(this, playerData, StateMachine, "wallSlide");
-        WallJumpState = new PlayerWallJumpState(this, playerData, StateMachine, "inAir");
-        LedgeClimbState = new PlayerLedgeClimbState(this, playerData, StateMachine, "ledgeClimbState");
-        CrouchIdleState = new PlayerCrouchIdleState(this, playerData, StateMachine, "crouchIdle");
-        CrouchMoveState = new PlayerCrouchMoveState(this, playerData, StateMachine, "crouchMove");
-        AttackState = new PlayerAttackState(this, playerData, StateMachine, "attack");
+        IdleState = new PlayerIdleState(this, "idle");
+        MoveState = new PlayerMoveState(this, "move");
+        JumpState = new PlayerJumpState(this, "inAir");
+        InAirState = new PlayerInAirState(this, "inAir");
+        LandState = new PlayerLandState(this, "land");
+        WallSlideState = new PlayerWallSlideState(this, "wallSlide");
+        WallJumpState = new PlayerWallJumpState(this, "inAir");
+        LedgeClimbState = new PlayerLedgeClimbState(this, "ledgeClimbState");
+        CrouchIdleState = new PlayerCrouchIdleState(this, "crouchIdle");
+        CrouchMoveState = new PlayerCrouchMoveState(this, "crouchMove");
+        AttackState = new PlayerAttackState(this, "attack", weapon);
     }
 
-    private void Start()
-    {
+    private void Start() {
         Anim = GetComponent<Animator>();
         RB = GetComponent<Rigidbody2D>(); 
         InputHandler = GetComponent<PlayerInputHandler>();
@@ -81,16 +71,8 @@ public class Player : MonoBehaviour
         deathSoundEffect.Play();
     }
 
-    #endregion
-
-    #region Animation Triggers
-
     private void AnimationTrigger() => StateMachine.CurrentState.AnimationTrigger();
     private void AnimationFinishTrigger() => StateMachine.CurrentState.AnimationFinishTrigger();
-
-    #endregion
-
-    #region Other Functions
 
     public void SetColliderHeight(float height)
     {
@@ -103,5 +85,4 @@ public class Player : MonoBehaviour
         MovementCollider.offset = center;
     }
 
-    #endregion
 }

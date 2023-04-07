@@ -13,7 +13,7 @@ public class PlayerWallSlideState : PlayerState
     private bool isTouchingWall;
     private bool jumpInput;
     
-    public PlayerWallSlideState(Player player, SO_PlayerData playerData, PlayerStateMachine stateMachine, string animBoolName) : base(player, playerData, stateMachine, animBoolName)
+    public PlayerWallSlideState(Player player, string animBoolName) : base(player, animBoolName)
     {
     }
 

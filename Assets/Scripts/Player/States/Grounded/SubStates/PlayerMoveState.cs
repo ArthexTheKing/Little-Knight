@@ -4,7 +4,7 @@ public class PlayerMoveState : PlayerGroundedState
 {
     #region Constructors
 
-    public PlayerMoveState(Player player, SO_PlayerData playerData, PlayerStateMachine stateMachine, string animBoolName) : base(player, playerData, stateMachine, animBoolName)
+    public PlayerMoveState(Player player, string animBoolName) : base(player, animBoolName)
     {
     }
 
