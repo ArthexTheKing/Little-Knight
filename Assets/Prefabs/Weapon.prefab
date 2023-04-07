@@ -163,3 +163,5 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 16eb32e6f181d0d4f9d71fbacbdb7c09, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  numberOfAttack: 3
+  attackCounterResetCooldown: 3
