@@ -56749,12 +56749,16 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5761e0561d34e4b4795a8e16828d5050, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  groundCheck: {fileID: 864717110}
-  wallCheck: {fileID: 1924099352}
-  ledgeCheckHorizontal: {fileID: 613901549}
-  ledgeCheckVertical: {fileID: 0}
-  ceilingCheck: {fileID: 1542145634}
-  collisionSensesData: {fileID: 11400000, guid: 5b881474bacd9274fb635334f7c53229, type: 2}
+  <GroundCheck>k__BackingField: {fileID: 864717110}
+  <WallCheck>k__BackingField: {fileID: 1924099352}
+  <LedgeCheckHorizontal>k__BackingField: {fileID: 613901549}
+  <LedgeCheckVertical>k__BackingField: {fileID: 0}
+  <CeilingCheck>k__BackingField: {fileID: 1542145634}
+  <GroundCheckRadius>k__BackingField: 0.3
+  <WallCheckDistance>k__BackingField: 0.5
+  <WhatIsGround>k__BackingField:
+    serializedVersion: 2
+    m_Bits: 64
 --- !u!1 &820158716
 GameObject:
   m_ObjectHideFlags: 0
@@ -60594,12 +60598,16 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5761e0561d34e4b4795a8e16828d5050, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  groundCheck: {fileID: 1902058267}
-  wallCheck: {fileID: 148964474}
-  ledgeCheckHorizontal: {fileID: 0}
-  ledgeCheckVertical: {fileID: 529785213}
-  ceilingCheck: {fileID: 0}
-  collisionSensesData: {fileID: 11400000, guid: c66928647a30e6a45924423ac08a6e7d, type: 2}
+  <GroundCheck>k__BackingField: {fileID: 0}
+  <WallCheck>k__BackingField: {fileID: 0}
+  <LedgeCheckHorizontal>k__BackingField: {fileID: 0}
+  <LedgeCheckVertical>k__BackingField: {fileID: 0}
+  <CeilingCheck>k__BackingField: {fileID: 0}
+  <GroundCheckRadius>k__BackingField: 0
+  <WallCheckDistance>k__BackingField: 0
+  <WhatIsGround>k__BackingField:
+    serializedVersion: 2
+    m_Bits: 0
 --- !u!1 &1618315259
 GameObject:
   m_ObjectHideFlags: 0
@@ -62908,12 +62916,16 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5761e0561d34e4b4795a8e16828d5050, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  groundCheck: {fileID: 2130467684}
-  wallCheck: {fileID: 1092657390}
-  ledgeCheckHorizontal: {fileID: 0}
-  ledgeCheckVertical: {fileID: 1618315260}
-  ceilingCheck: {fileID: 0}
-  collisionSensesData: {fileID: 11400000, guid: 21c068cf5998065428c96834c84d0b80, type: 2}
+  <GroundCheck>k__BackingField: {fileID: 0}
+  <WallCheck>k__BackingField: {fileID: 0}
+  <LedgeCheckHorizontal>k__BackingField: {fileID: 0}
+  <LedgeCheckVertical>k__BackingField: {fileID: 0}
+  <CeilingCheck>k__BackingField: {fileID: 0}
+  <GroundCheckRadius>k__BackingField: 0
+  <WallCheckDistance>k__BackingField: 0
+  <WhatIsGround>k__BackingField:
+    serializedVersion: 2
+    m_Bits: 0
 --- !u!1 &2113181256
 GameObject:
   m_ObjectHideFlags: 0

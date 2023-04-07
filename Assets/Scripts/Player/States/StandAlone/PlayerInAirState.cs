@@ -2,12 +2,11 @@ using UnityEngine;
 
 public class PlayerInAirState : PlayerState
 {
-    private Movement Movement => movement ??= core.GetCoreComponent<Movement>();
-
-    private CollisionSenses CollisionSenses => collisionSenses ??= core.GetCoreComponent<CollisionSenses>();
-
     private Movement movement;
+    private Movement Movement => core.GetCoreComponent(ref movement);
+
     private CollisionSenses collisionSenses;
+    private CollisionSenses CollisionSenses => core.GetCoreComponent(ref collisionSenses);
 
     private int xInput;
 

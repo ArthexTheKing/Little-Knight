@@ -27,7 +27,7 @@ public class Core : MonoBehaviour
         }
     }
 
-    public T GetCoreComponent<T>() where T : CoreComponent
+    private T GetCoreComponent<T>() where T : CoreComponent
     {
         var comp = CoreComponents.OfType<T>().FirstOrDefault();
 
@@ -45,7 +45,8 @@ public class Core : MonoBehaviour
 
     public T GetCoreComponent<T>(ref T value) where T : CoreComponent
     {
-        value = GetCoreComponent<T>();
+        if(value == null)
+            value = GetCoreComponent<T>();
         return value;
     }
 }

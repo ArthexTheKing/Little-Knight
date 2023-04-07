@@ -2,9 +2,8 @@ using UnityEngine;
 
 public class Entity : MonoBehaviour
 {
-    private Movement Movement => movement ??= Core.GetCoreComponent<Movement>();
-
     private Movement movement;
+    private Movement Movement => Core.GetCoreComponent(ref movement);
 
     public FiniteStateMachine StateMachine { get; private set; }
 
@@ -42,7 +41,6 @@ public class Entity : MonoBehaviour
 
         anim = GetComponent<Animator>();
         atsm = GetComponent<AnimationToStatemachine>();
-        movement = Core.GetCoreComponent<Movement>();
     }
 
     public virtual void Update()

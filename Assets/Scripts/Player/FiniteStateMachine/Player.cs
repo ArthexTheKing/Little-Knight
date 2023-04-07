@@ -26,7 +26,6 @@ public class Player : MonoBehaviour
     public Animator Anim { get; private set; }
     public Rigidbody2D RB { get; private set; }
     public BoxCollider2D MovementCollider { get; private set; }
-    public PlayerInventory Inventory { get; private set; }
     public PlayerInputHandler InputHandler { get; private set; }
 
     [SerializeField]
@@ -63,9 +62,6 @@ public class Player : MonoBehaviour
         RB = GetComponent<Rigidbody2D>(); 
         InputHandler = GetComponent<PlayerInputHandler>();
         MovementCollider = GetComponent<BoxCollider2D>();
-        Inventory = GetComponent<PlayerInventory>();
-
-        AttackState.SetWeapon(Inventory.weapon);
 
         StateMachine.Initialize(IdleState);
     }
