@@ -35,9 +35,9 @@ public class Leaderboard : MonoBehaviour
         LeaderboardCreator.UploadNewEntry(publicKey, username, 
             score, ((msg) => {
                 //username.Substring(0,4);
-                if(System.Array.IndexOf (badWords, username) != -1){
+                /*if(System.Array.IndexOf (badWords, username) != -1){
                     print("Devi inserire uno username valido");
-                } 
+                } */
                 if(username == null){
                     print("Devi inserire uno username");
                 }

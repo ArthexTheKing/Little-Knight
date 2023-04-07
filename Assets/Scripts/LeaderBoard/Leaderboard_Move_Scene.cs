@@ -8,6 +8,7 @@ public class Leaderboard_Move_Scene : MonoBehaviour
     public int sceneBuildIndex;
     public ScoreCalculator sc;
     public GameObject canvas;
+    public GameObject eventSystem;
     private void OnTriggerEnter2D(Collider2D other){
         print("Trigger Entered");
 
@@ -16,6 +17,7 @@ public class Leaderboard_Move_Scene : MonoBehaviour
             sc.finalizingScore();
             DisableUI();
             SceneManager.LoadScene(sceneBuildIndex, LoadSceneMode.Additive);
+            SceneManager.MoveGameObjectToScene(eventSystem, SceneManager.GetSceneByBuildIndex(sceneBuildIndex));
         }
     }
 
