@@ -32,6 +32,8 @@ public class Player : MonoBehaviour {
 
         weapon = transform.Find("Weapon").GetComponent<Weapon>();
 
+        weapon.SetCore(Core);
+
         StateMachine = new PlayerStateMachine();
 
         IdleState = new PlayerIdleState(this, "idle");
