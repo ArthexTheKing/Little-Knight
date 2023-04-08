@@ -3,21 +3,12 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class WeaponSprite : WeaponComponent
+public class WeaponSprite : WeaponComponent<WeaponSpriteData, AttackSprites>
 {
     private SpriteRenderer baseSpriteRenderer;
     private SpriteRenderer weaponSpriteRenderer;
 
     private int currentWeaponSpriteIndex;
-
-    private WeaponSpriteData data;
-
-    protected override void HandleEnter()
-    {
-        base.HandleEnter();
-
-        currentWeaponSpriteIndex = 0;
-    }
 
     private void HandleBaseSpriteChange(SpriteRenderer sr)
     {
@@ -27,7 +18,7 @@ public class WeaponSprite : WeaponComponent
             return;
         }
 
-        var currentAttackSprites = data.AttackData[weapon.CurrentAttackCounter].Sprites;
+        var currentAttackSprites = currentAttackData.Sprites;
 
         if(currentWeaponSpriteIndex >= currentAttackSprites.Length)
         {
@@ -47,11 +38,16 @@ public class WeaponSprite : WeaponComponent
         baseSpriteRenderer = transform.Find("Base").GetComponent<SpriteRenderer>();
         weaponSpriteRenderer = transform.Find("WeaponSprite").GetComponent<SpriteRenderer>();
 
-        data = weapon.Data.GetData<WeaponSpriteData>();
-
         // TODO: fix
         // baseSpriteRenderer = weapon.BaseGameObject.GetComponent<SpriteRenderer>();
         // weaponSpriteRenderer = weapon.WeaponSpriteGameObject.GetComponent<SpriteRenderer>();
+    }
+
+    protected override void HandleEnter()
+    {
+        base.HandleEnter();
+
+        currentWeaponSpriteIndex = 0;
     }
 
     protected override void OnEnable()
