@@ -10,11 +10,11 @@ public class WeaponDataSO : ScriptableObject
 
     [field: SerializeReference] public List<ComponentData> ComponentData { get; private set; }
 
-    [ContextMenu("Add Sprite Data")]
-    private void AddSpriteData() => ComponentData.Add(new WeaponSpriteData());
-
-    [ContextMenu("Add Movement Data")]
-    private void AddMovementData() => ComponentData.Add(new WeaponMovementData());
+    public void AddData(ComponentData data)
+    {
+        if(ComponentData.FirstOrDefault(t => t.GetType() == data.GetType()) != null) return;
+        ComponentData.Add(data);
+    }
 
     public T GetData<T>()
     {
