@@ -12,6 +12,9 @@ public class WeaponDataSOEditor : Editor
 
     private WeaponDataSO dataSO;
 
+    private bool showForceUpdateButtons;
+    private bool showAddComponentsButtons;
+
     private void OnEnable()
     {
         dataSO = target as WeaponDataSO;
@@ -21,15 +24,51 @@ public class WeaponDataSOEditor : Editor
     {
         base.OnInspectorGUI();
 
-        foreach (Type dataCompType in dataCompTypes)
+        if (GUILayout.Button("Set Number of Attack"))
         {
-            if(GUILayout.Button($"{dataCompType.Name}"))
+            foreach (var item in dataSO.ComponentData)
             {
-                var comp = Activator.CreateInstance(dataCompType) as ComponentData;
-                if(comp == null) return;
-                dataSO.AddData(comp);
+                item.InitializeAttackData(dataSO.NumberOfAttack);
             }
         }
+
+        showAddComponentsButtons = EditorGUILayout.Foldout(showAddComponentsButtons, "Add Components");
+
+        if (showAddComponentsButtons) 
+        {
+            foreach (Type dataCompType in dataCompTypes)
+            {
+                if(GUILayout.Button($"{dataCompType.Name}"))
+                {
+                    var comp = Activator.CreateInstance(dataCompType) as ComponentData;
+                    if(comp == null) return;
+                    comp.InitializeAttackData(dataSO.NumberOfAttack);
+                    dataSO.AddData(comp);
+                }
+            }
+        }
+
+        showForceUpdateButtons = EditorGUILayout.Foldout(showForceUpdateButtons, "Force Update Buttons");
+
+        if (showForceUpdateButtons)
+        {
+            if (GUILayout.Button("Force Update Component Name"))
+            {
+                foreach (var item in dataSO.ComponentData)
+                {
+                    item.SetComponentName();
+                }
+            }
+
+            if (GUILayout.Button("Force Update Attack Names"))
+            {
+                foreach (var item in dataSO.ComponentData)
+                {
+                    item.SetAttackDataNames();
+                }
+            }
+        }
+
     }
 
     [DidReloadScripts]
