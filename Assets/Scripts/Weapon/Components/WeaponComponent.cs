@@ -20,6 +20,11 @@ public abstract class WeaponComponent : MonoBehaviour
 
         eventHandler = GetComponentInChildren<AnimationEventHandler>();
     }
+    
+    protected virtual void Start()
+    {
+        
+    }
 
     protected virtual void HandleEnter()
     {
