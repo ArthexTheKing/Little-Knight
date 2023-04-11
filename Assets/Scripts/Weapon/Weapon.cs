@@ -3,6 +3,8 @@ using UnityEngine;
 
 public class Weapon : MonoBehaviour
 {
+    [SerializeField] private float attackCounterResetCooldown;
+
     public int CurrentAttackCounter
     {
         get => currentAttackCounter;
@@ -11,17 +13,14 @@ public class Weapon : MonoBehaviour
 
     public event Action OnEnter; 
     public event Action OnExit;
-
-    [SerializeField] private float attackCounterResetCooldown;
     
     private Animator animator;
     private Utils.Timer attackCounterResetTimer;
 
     private int currentAttackCounter;
     
-    [field: SerializeField] public WeaponDataSO Data { get; private set; }
-    
     public Core Core { get; private set; }
+    public WeaponDataSO Data { get; private set; }
     public GameObject BaseGameObject { get; private set; }
     public GameObject WeaponSpriteGameObject { get; private set; }
     public AnimationEventHandler EventHandler { get; private set; }
@@ -51,6 +50,11 @@ public class Weapon : MonoBehaviour
     public void SetCore(Core core)
     {
         Core = core;
+    }
+
+    public void SetData(WeaponDataSO data)
+    {
+        Data = data;
     }
 
     private void Awake()

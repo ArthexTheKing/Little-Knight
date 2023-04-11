@@ -23,7 +23,14 @@ public abstract class WeaponComponent : MonoBehaviour
     
     protected virtual void Start()
     {
-        
+        weapon.OnEnter += HandleEnter;
+        weapon.OnExit += HandleExit;
+    }
+
+    protected virtual void OnDestroy()
+    {
+        weapon.OnEnter -= HandleEnter;
+        weapon.OnExit -= HandleExit;
     }
 
     protected virtual void HandleEnter()
@@ -36,16 +43,9 @@ public abstract class WeaponComponent : MonoBehaviour
         isAttackActive = false;
     }
 
-    protected virtual void OnEnable()
+    public virtual void Init()
     {
-        weapon.OnEnter += HandleEnter;
-        weapon.OnExit += HandleExit;
-    }
 
-    protected virtual void OnDisable()
-    {
-        weapon.OnEnter -= HandleEnter;
-        weapon.OnExit -= HandleExit;
     }
 
 }
@@ -62,9 +62,9 @@ public abstract class WeaponComponent<T1, T2> : WeaponComponent where T1 : Compo
         currentAttackData = data.AttackData[weapon.CurrentAttackCounter];
     }
 
-    protected override void Awake()
+    public override void Init()
     {
-        base.Awake();
+        base.Init();
 
         data = weapon.Data.GetData<T1>();
     }

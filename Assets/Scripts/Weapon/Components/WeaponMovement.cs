@@ -4,30 +4,31 @@ using UnityEngine;
 
 public class WeaponMovement : WeaponComponent<WeaponMovementData, AttackMovement>
 {
-    private Movement movement;
-    private Movement Movement => Core.GetCoreComponent(ref movement);
+    private CoreComp<Movement> movement;
 
     private void HandleStartMovement()
     {
-        Movement.SetVelocity(currentAttackData.Velocity, currentAttackData.Direction, Movement.FacingDirection);
+        movement.Comp.SetVelocity(currentAttackData.Velocity, currentAttackData.Direction, movement.Comp.FacingDirection);
     }
 
     private void HandleStopMovement()
     {
-        Movement.SetVelocityZero();
+        movement.Comp.SetVelocityZero();
     }
 
-    protected override void OnEnable()
+    protected override void Start()
     {
-        base.OnEnable();
+        base.Start();
+
+        movement = new(Core);
 
         eventHandler.OnStartMovement += HandleStartMovement;
         eventHandler.OnStopMovement += HandleStopMovement;
     }
 
-    protected override void OnDisable()
+    protected override void OnDestroy()
     {
-        base.OnDisable();
+        base.OnDestroy();
 
         eventHandler.OnStartMovement -= HandleStartMovement;
         eventHandler.OnStopMovement -= HandleStopMovement;
