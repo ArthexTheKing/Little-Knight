@@ -3,7 +3,7 @@ using UnityEngine;
 
 public class WeaponActionHitBox : WeaponComponent<WeaponActionHitBoxData, AttackActionHitBox>
 {
-    private event Action<Collider2D[]> OnDetectedCollider2D;
+    public event Action<Collider2D[]> OnDetectedCollider2D;
     private CoreComp<Movement> movement;
     private Vector2 offset;
     private Collider2D[] detected;
@@ -19,11 +19,6 @@ public class WeaponActionHitBox : WeaponComponent<WeaponActionHitBoxData, Attack
         if (detected.Length == 0) return;
 
         OnDetectedCollider2D?.Invoke(detected);
-
-        foreach(var item in detected)
-        {
-            Debug.Log(item.name);
-        }
     }
 
     protected override void Start()
