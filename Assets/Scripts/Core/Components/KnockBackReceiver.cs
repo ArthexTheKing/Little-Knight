@@ -15,6 +15,8 @@ public class KnockBackReceiver : CoreComponent, IKnockBackable
 
 	protected override void Awake()
 	{
+		base.Awake();
+
 		movement = new CoreComp<Movement>(core);
 		collisionSenses = new CoreComp<CollisionSenses>(core);
 	}
