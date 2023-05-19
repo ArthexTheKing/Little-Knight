@@ -174,7 +174,6 @@ GameObject:
   - component: {fileID: 103737936}
   - component: {fileID: 103737935}
   - component: {fileID: 103737934}
-  - component: {fileID: 103737933}
   m_Layer: 5
   m_Name: OptionsButtun
   m_TagString: Untagged
@@ -203,18 +202,6 @@ RectTransform:
   m_AnchoredPosition: {x: 0, y: -2.399994}
   m_SizeDelta: {x: 160, y: 30}
   m_Pivot: {x: 0.5, y: 0.5}
---- !u!114 &103737933
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 103737931}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 3c408527ab3388f45a76dce5962aa8dc, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!114 &103737934
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -389,7 +376,7 @@ RectTransform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 1270312874}
-  m_RootOrder: 2
+  m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
@@ -1006,7 +993,6 @@ GameObject:
   - component: {fileID: 1072521223}
   - component: {fileID: 1072521222}
   - component: {fileID: 1072521221}
-  - component: {fileID: 1072521220}
   m_Layer: 5
   m_Name: BackButton
   m_TagString: Untagged
@@ -1028,25 +1014,13 @@ RectTransform:
   m_Children:
   - {fileID: 799663473}
   m_Father: {fileID: 1270312874}
-  m_RootOrder: 1
+  m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
   m_AnchoredPosition: {x: 0, y: -32.399994}
   m_SizeDelta: {x: 160, y: 30}
   m_Pivot: {x: 0.5, y: 0.5}
---- !u!114 &1072521220
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1072521218}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 3c408527ab3388f45a76dce5962aa8dc, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!114 &1072521221
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1249,8 +1223,9 @@ RectTransform:
   - {fileID: 2060644274}
   - {fileID: 32665750}
   - {fileID: 1270312874}
+  - {fileID: 1916538237}
   m_Father: {fileID: 0}
-  m_RootOrder: 2
+  m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
@@ -1336,9 +1311,9 @@ RectTransform:
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 931647175}
-  - {fileID: 1072521219}
   - {fileID: 147288327}
   - {fileID: 1712544741}
+  - {fileID: 1072521219}
   m_Father: {fileID: 1161893732}
   m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -1460,7 +1435,7 @@ RectTransform:
   - {fileID: 112381140}
   - {fileID: 1232681700}
   m_Father: {fileID: 1270312874}
-  m_RootOrder: 3
+  m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
@@ -1666,13 +1641,13 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1916538234}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: -307.5, y: -208, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
-  m_Father: {fileID: 0}
-  m_RootOrder: 1
+  m_Father: {fileID: 1161893732}
+  m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1981024519
 GameObject:
@@ -1861,7 +1836,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 3
+  m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!82 &2091831087
 AudioSource:
@@ -1971,7 +1946,6 @@ GameObject:
   - component: {fileID: 2121023770}
   - component: {fileID: 2121023769}
   - component: {fileID: 2121023768}
-  - component: {fileID: 2121023767}
   m_Layer: 5
   m_Name: StartButton
   m_TagString: Untagged
@@ -2000,18 +1974,6 @@ RectTransform:
   m_AnchoredPosition: {x: 0, y: 27.600006}
   m_SizeDelta: {x: 160, y: 30}
   m_Pivot: {x: 0.5, y: 0.5}
---- !u!114 &2121023767
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2121023765}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 3c408527ab3388f45a76dce5962aa8dc, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!114 &2121023768
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2056,8 +2018,8 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 2121023767}
-        m_TargetAssemblyTypeName: StartMenu, Assembly-CSharp
+      - m_Target: {fileID: 1161893733}
+        m_TargetAssemblyTypeName: SettingsMenu, Assembly-CSharp
         m_MethodName: StartGame
         m_Mode: 1
         m_Arguments:
@@ -2118,7 +2080,6 @@ GameObject:
   - component: {fileID: 2137790935}
   - component: {fileID: 2137790934}
   - component: {fileID: 2137790933}
-  - component: {fileID: 2137790932}
   m_Layer: 5
   m_Name: QuitButton
   m_TagString: Untagged
@@ -2147,18 +2108,6 @@ RectTransform:
   m_AnchoredPosition: {x: 0, y: -32.399994}
   m_SizeDelta: {x: 160, y: 30}
   m_Pivot: {x: 0.5, y: 0.5}
---- !u!114 &2137790932
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2137790930}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 3c408527ab3388f45a76dce5962aa8dc, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!114 &2137790933
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2203,9 +2152,9 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 2137790932}
-        m_TargetAssemblyTypeName: StartMenu, Assembly-CSharp
-        m_MethodName: QuitGame
+      - m_Target: {fileID: 1161893733}
+        m_TargetAssemblyTypeName: SettingsMenu, Assembly-CSharp
+        m_MethodName: EndGame
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}

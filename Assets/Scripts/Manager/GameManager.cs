@@ -5,40 +5,37 @@ using Cinemachine;
 
 public class GameManager : MonoBehaviour
 {
-    [SerializeField]
-    private Transform respawnPoint;
-    [SerializeField]
-    private GameObject player;
-    [SerializeField]
-    private float respawnTime;
-    private float respawnTimeStart;
-    private bool respawn;
+    [SerializeField] private Transform respawnPoint;
+    [SerializeField] private GameObject player;
+    [SerializeField] private float respawnTime;
+    [SerializeField] private AudioSource deathSound;
 
-    private CinemachineVirtualCamera CVC;
+    private bool isRespawning;
+    private float timeOfDeath;
 
-    private void Start()
-    {
-        CVC = GameObject.Find("Player Camera").GetComponent<CinemachineVirtualCamera>();
-    }
 
     public void Update()
     {
+        CheckDeadPlayer();
         CheckRespawn();
     }
 
-    public void Respawn()
-    { 
-        respawnTimeStart = Time.time;
-        respawn = true;
+    private void CheckDeadPlayer()
+    {
+        if (!player.activeInHierarchy & !isRespawning) 
+        {
+            deathSound.Play();
+            timeOfDeath = Time.time;
+            isRespawning = true;
+        }
     }
 
-    public void CheckRespawn()
+    private void CheckRespawn()
     {
-        if(Time.time >= respawnTimeStart + respawnTime && respawn)
-        {
-            var playerTemp = Instantiate(player, respawnPoint);
-            CVC.m_Follow = playerTemp.transform;
-            respawn = false;
+        if (isRespawning & Time.time >= timeOfDeath + respawnTime) {
+            player.transform.position = respawnPoint.position;
+            player.SetActive(true);
+            isRespawning = false;
         }
     }
 

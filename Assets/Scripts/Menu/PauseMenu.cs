@@ -4,45 +4,45 @@ using UnityEngine;
 
 public class PauseMenu : MonoBehaviour
 {
-    public GameObject pauseMenu;
-    public GameObject mainMenu;
-    public static bool isPaused;
-    // Start is called before the first frame update
+    [SerializeField] private GameObject pauseMenu;
+    private Canvas controlPanel;
+    private bool isPaused;
+    
     void Start()
     {
+        controlPanel = GameObject.Find("Touch Control").GetComponent<Canvas>();
         pauseMenu.SetActive(false);
+        controlPanel.enabled = true;
     }
 
-    // Update is called once per frame
     void Update()
     {
-        
-        if(Input.GetKeyDown(KeyCode.R)){
-            if(isPaused){
+        if(Input.GetKeyDown(KeyCode.Escape))
+        {
+            if(isPaused)
+            {
                 resumeGame();
             }
-            
-        }
-        
-        if(Input.GetKeyDown(KeyCode.Escape)){
-            if(!isPaused){
+            else
+            {
                 pauseGame();
-            }
-            
+            }   
         }
-        
     }
-    public void pauseGame(){
+
+    public void pauseGame()
+    {
         pauseMenu.SetActive(true);
         Time.timeScale = 0f;
-        mainMenu.SetActive(false);
+        controlPanel.enabled = false;
         isPaused = true;
     }
 
-    public void resumeGame(){
+    public void resumeGame()
+    {
         pauseMenu.SetActive(false);
         Time.timeScale = 1f;
-        mainMenu.SetActive(true);
+        controlPanel.enabled = true;
         isPaused = false;
     }
 }

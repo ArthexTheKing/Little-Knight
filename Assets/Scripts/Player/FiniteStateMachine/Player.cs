@@ -20,8 +20,6 @@ public class Player : MonoBehaviour {
     public Rigidbody2D RB { get; private set; }
     public BoxCollider2D MovementCollider { get; private set; }
     public PlayerInputHandler InputHandler { get; private set; }
-
-    [SerializeField] private AudioSource deathSoundEffect;
     
     [field: SerializeField] public PlayerDataSO PlayerDataSO { get; private set; }
 
@@ -67,10 +65,6 @@ public class Player : MonoBehaviour {
     private void FixedUpdate()
     {
         StateMachine.CurrentState.PhysicsUpdate();
-    }
-
-    private void OnDisable(){
-        deathSoundEffect.Play();
     }
 
     private void AnimationTrigger() => StateMachine.CurrentState.AnimationTrigger();
