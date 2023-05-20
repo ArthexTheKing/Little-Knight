@@ -8,7 +8,7 @@ public class Stats : CoreComponent
     public event Action OnHealthZero;
     
     public float maxHealth;
-    public float currentHealth;
+    [HideInInspector] public float currentHealth;
 
     protected override void Awake()
     {

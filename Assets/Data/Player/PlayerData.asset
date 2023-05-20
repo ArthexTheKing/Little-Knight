@@ -21,7 +21,7 @@ MonoBehaviour:
   coyoteTime: 0.2
   variableJumpHeightMultiplier: 0.5
   wallSlideVelocity: 2
-  startOffset: {x: 0.4, y: 0.9}
+  startOffset: {x: 0.35, y: 1.4}
   stopOffset: {x: 0.4, y: 0.75}
   crouchMovementVelocity: 5
   crouchColliderHeight: 0.8
