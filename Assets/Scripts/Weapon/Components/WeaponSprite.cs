@@ -22,7 +22,7 @@ public class WeaponSprite : WeaponComponent<WeaponSpriteData, AttackSprites>
 
         if(currentWeaponSpriteIndex >= currentAttackSprites.Length)
         {
-            Debug.LogWarning($"{weapon.name} weapon sprites length mismatch");
+            // Debug.LogWarning($"{weapon.name} weapon sprites length mismatch");
             return;
         }
 

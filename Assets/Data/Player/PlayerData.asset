@@ -14,14 +14,14 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   movementVelocity: 10
   amountOfJumps: 1
-  jumpVelocity: 15
+  jumpVelocity: 18
   wallJumpVelocity: 20
   wallJumpTime: 0.4
   wallJumpAngle: {x: 1, y: 2}
   coyoteTime: 0.2
   variableJumpHeightMultiplier: 0.5
   wallSlideVelocity: 2
-  startOffset: {x: 0.35, y: 1.4}
+  startOffset: {x: 0.45, y: 1.75}
   stopOffset: {x: 0.4, y: 0.75}
   crouchMovementVelocity: 5
   crouchColliderHeight: 0.8

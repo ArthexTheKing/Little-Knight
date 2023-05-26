@@ -5,19 +5,22 @@ using UnityEngine.UI;
 
 public class HealthBar : MonoBehaviour
 {
+    [SerializeField] private Player player;
+
     private Stats stats;
-    private Image image;
+    private Image healthBar;
 
     private float barWidth;
     private float barHeight;
 
     private void Start()
     {
-        image = GetComponent<Image>();
-        stats = GetComponentInParent<Stats>();
+        stats = player.Core.GetCoreComponent<Stats>(ref stats);
 
-        barWidth = image.rectTransform.sizeDelta.x;
-        barHeight = image.rectTransform.sizeDelta.y;
+        healthBar = GameObject.Find("Health Bar").GetComponent<Image>();
+
+        barWidth = healthBar.rectTransform.sizeDelta.x;
+        barHeight = healthBar.rectTransform.sizeDelta.y;
     }
 
     private void Update()
@@ -30,7 +33,7 @@ public class HealthBar : MonoBehaviour
         if (stats.currentHealth > 0)
         {
             float currentHealth = (stats.currentHealth * barWidth) / stats.maxHealth;
-            image.rectTransform.sizeDelta = new Vector2(currentHealth, barHeight);
+            healthBar.rectTransform.sizeDelta = new Vector2(currentHealth, barHeight);
         }
     }
 }
