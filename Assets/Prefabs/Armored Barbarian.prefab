@@ -389,7 +389,7 @@ Transform:
   m_GameObject: {fileID: 4579495652068804341}
   m_LocalRotation: {x: -0, y: -0, z: 0.0003945425, w: 0.99999994}
   m_LocalPosition: {x: -6.6, y: 10.36, z: 0}
-  m_LocalScale: {x: 1.25, y: 1.25, z: 1.25}
+  m_LocalScale: {x: 1.6, y: 1.6, z: 1.6}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 4579495652635580429}
@@ -645,7 +645,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f0b69d7ac7a9cf74ba28b7bed6bcdfa6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  maxHealth: 50
+  maxHealth: 40
   currentHealth: 0
 --- !u!1 &4579495652391525017
 GameObject:

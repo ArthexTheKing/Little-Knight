@@ -85,7 +85,7 @@ MonoBehaviour:
         name: WeaponDamageData
         attackData:
         - name: Attack 1
-          <Amount>k__BackingField: 5
+          <Amount>k__BackingField: 10
         - name: Attack 2
           <Amount>k__BackingField: 10
         - name: Attack 3

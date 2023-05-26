@@ -125,6 +125,18 @@ TextureImporter:
     overridden: 0
     androidETC2FallbackOverride: 0
     forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: WebGL
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 0
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
   spriteSheet:
     serializedVersion: 2
     sprites:
@@ -1840,7 +1852,7 @@ TextureImporter:
     weights: []
     secondaryTextures: []
     nameFileIdTable:
-      CrouchIdle_0: 788539359
+      CharacterTemplate_59: -1546561150
       CharacterTemplate_56: -273027580
       Jump_1: 1453338320
       CharacterTemplate_47: -1996553441
@@ -1908,18 +1920,18 @@ TextureImporter:
       Attack1_2: -1134077794
       CrouchMove_7: 1971284907
       CharacterTemplate_55: -344478677
+      Move_1: 1773166257
       Jump_X_1: -735059870
-      Fall_0: 344782363
       Wall_Slide_1: -1164426445
       CharacterTemplate_61: 293302815
       Idle_2: 1882917551
       CharacterTemplate_58: -746524741
-      Move_7: 1597593507
+      Fall_0: 344782363
       Attack2_1: 1662147633
       Attack2_3: 1353108296
+      Move_7: 1597593507
       Attack2_0: 1080467929
-      Move_1: 1773166257
-      CharacterTemplate_59: -1546561150
+      CrouchIdle_0: 788539359
       Land_1: -2050167834
   spritePackingTag: 
   pSDRemoveMatte: 0
