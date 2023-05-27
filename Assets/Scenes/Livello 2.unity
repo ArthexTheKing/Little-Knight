@@ -79005,7 +79005,6 @@ MonoBehaviour:
   sceneBuildIndex: 5
   sc: {fileID: 1337331062209975289}
   canvas: {fileID: 1337331062209975288}
-  eventSystem: {fileID: 0}
 --- !u!1001 &1971164156
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -80031,7 +80030,7 @@ PrefabInstance:
   m_SourcePrefab: {fileID: 100100000, guid: 6e584ac19065c454d998862cdb734fc8, type: 3}
 --- !u!1 &1337331062209975288 stripped
 GameObject:
-  m_CorrespondingSourceObject: {fileID: 1337331061621686335, guid: 6e584ac19065c454d998862cdb734fc8, type: 3}
+  m_CorrespondingSourceObject: {fileID: 7840873671859971253, guid: 6e584ac19065c454d998862cdb734fc8, type: 3}
   m_PrefabInstance: {fileID: 1337331062209975287}
   m_PrefabAsset: {fileID: 0}
 --- !u!114 &1337331062209975289 stripped

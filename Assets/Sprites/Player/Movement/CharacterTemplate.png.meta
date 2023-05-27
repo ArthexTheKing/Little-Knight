@@ -1852,7 +1852,7 @@ TextureImporter:
     weights: []
     secondaryTextures: []
     nameFileIdTable:
-      CharacterTemplate_59: -1546561150
+      Attack2_0: 1080467929
       CharacterTemplate_56: -273027580
       Jump_1: 1453338320
       CharacterTemplate_47: -1996553441
@@ -1930,7 +1930,7 @@ TextureImporter:
       Attack2_1: 1662147633
       Attack2_3: 1353108296
       Move_7: 1597593507
-      Attack2_0: 1080467929
+      CharacterTemplate_59: -1546561150
       CrouchIdle_0: 788539359
       Land_1: -2050167834
   spritePackingTag: 
