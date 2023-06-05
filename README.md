@@ -1,6 +1,6 @@
 # Progetto-MC
 
-Repository per il progetto d'esame del corso di Mobile Computing
+Repository per il progetto d'esame del corso di Mobile Computing,
 Corso di Laurea in Ingegneria Informatica sistemi Informativi
 
 Anno Accademico 2022/2023
@@ -15,7 +15,7 @@ Chiessi Agnese
 
 De Falco Valeria
 
-di Mario Alessandro
+di Mario Alessandro (Project Leader)
 
 Fantasticini Andrea
 
