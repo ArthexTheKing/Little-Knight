@@ -32,7 +32,7 @@ public class MainMenuManager : MonoBehaviour
         print("Ritorno al menu principale");
         PauseMenu pm = this.GetComponent<PauseMenu>();
         pm.resumeGame();
-        SceneManager.LoadScene("Main_Menu", LoadSceneMode.Single);
+        SceneManager.LoadScene(0);
     }
 
     public void WantToQuit()
@@ -42,14 +42,7 @@ public class MainMenuManager : MonoBehaviour
     }
 
     public void Quit(){
-        if(SceneManager.GetActiveScene().buildIndex == 2)
-        {
-            print("Sei uscito con successo dall'applicazione");
-            Application.Quit();
-            
-        }
-            
-        else ReturnToMainMenu();
+        ReturnToMainMenu();
     }
 
     public void DontQuit(){
