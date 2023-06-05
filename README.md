@@ -9,17 +9,15 @@ Voto ../30
 
 ## Partecipanti:
 
-Benedetti Sara
-
-Chiessi Agnese
-
-De Falco Valeria
-
-di Mario Alessandro (Project Leader)
-
-Fantasticini Andrea
+* Benedetti Sara
+* Chiessi Agnese
+* De Falco Valeria
+* di Mario Alessandro (Project Leader)
+* Fantasticini Andrea
 
 ## Caratteristiche del Progetto
+
+#### Nome del Gioco: 
 
 il progetto consiste in un gioco realizzato in Unity del tipo Metroidvania Arcade,
 la componente online consiste nella Leaderboard che salva con una API online il nome e il punteggio del giocatore
