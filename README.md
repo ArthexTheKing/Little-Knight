@@ -7,7 +7,7 @@ Anno Accademico 2022/2023
 
 Voto ../30
 
-Partecipanti:
+## Partecipanti:
 
 Benedetti Sara
 
@@ -18,3 +18,9 @@ De Falco Valeria
 di Mario Alessandro
 
 Fantasticini Andrea
+
+## Caratteristiche del Progetto
+
+il progetto consiste in un gioco realizzato in Unity del tipo Metroidvania Arcade,
+la componente online consiste nella Leaderboard che salva con una API online il nome e il punteggio del giocatore
+(la scelta di salvataggio è facoltativa)
