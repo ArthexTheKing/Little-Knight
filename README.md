@@ -10,7 +10,11 @@ Voto ../30
 Partecipanti:
 
 Benedetti Sara
+
 Chiessi Agnese
+
 De Falco Valeria
+
 di Mario Alessandro
+
 Fantasticini Andrea
