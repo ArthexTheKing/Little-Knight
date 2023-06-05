@@ -3,7 +3,10 @@
 --- !u!78 &1
 TagManager:
   serializedVersion: 2
-  tags: []
+  tags:
+  - Enemy
+  - ParticleContainer
+  - Weapon
   layers:
   - Default
   - TransparentFX
@@ -11,11 +14,11 @@ TagManager:
   - 
   - Water
   - UI
-  - Terreno
-  - 
-  - 
-  - 
-  - 
+  - Ground
+  - Damageable
+  - Dead
+  - Player
+  - Weapon
   - 
   - 
   - 
@@ -50,9 +53,21 @@ TagManager:
   - name: Platform
     uniqueID: 2363701015
     locked: 0
+  - name: Enemy
+    uniqueID: 1964506255
+    locked: 0
   - name: Player
     uniqueID: 3416863145
     locked: 0
+  - name: Weapon
+    uniqueID: 2309320501
+    locked: 0
   - name: Foreground Decoration
     uniqueID: 2404135671
+    locked: 0
+  - name: Objects
+    uniqueID: 2072429207
+    locked: 0
+  - name: UI
+    uniqueID: 633956243
     locked: 0
