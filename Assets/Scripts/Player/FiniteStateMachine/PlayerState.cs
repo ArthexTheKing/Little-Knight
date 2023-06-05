@@ -5,7 +5,7 @@ public class PlayerState
     protected Core core;
 
     protected Player player;
-    protected SO_PlayerData playerData;
+    protected PlayerDataSO playerData;
     protected PlayerStateMachine stateMachine;
 
     protected bool isAnimationFinished;
@@ -14,13 +14,13 @@ public class PlayerState
 
     private readonly string animBoolName;
 
-    public PlayerState(Player player, SO_PlayerData playerData, PlayerStateMachine stateMachine, string animBoolName)
+    public PlayerState(Player player, string animBoolName)
     {
         this.player = player;
-        this.playerData = playerData;
-        this.stateMachine = stateMachine;
+        this.playerData = player.PlayerDataSO;
+        this.stateMachine = player.StateMachine;
+        this.core = player.Core;
         this.animBoolName = animBoolName;
-        core = player.Core;
     }
 
     public virtual void Enter()

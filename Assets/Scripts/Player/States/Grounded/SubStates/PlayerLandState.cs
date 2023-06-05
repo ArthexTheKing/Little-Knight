@@ -1,6 +1,6 @@
 public class PlayerLandState : PlayerGroundedState
 {
-    public PlayerLandState(Player player, SO_PlayerData playerData, PlayerStateMachine stateMachine, string animBoolName) : base(player, playerData, stateMachine, animBoolName)
+    public PlayerLandState(Player player, string animBoolName) : base(player, animBoolName)
     {
     }
 

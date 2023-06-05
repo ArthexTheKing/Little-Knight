@@ -17,7 +17,7 @@ public class PlayerGroundedState : PlayerState
     private bool jumpInput;
     private bool isGrounded;
 
-    public PlayerGroundedState(Player player, SO_PlayerData playerData, PlayerStateMachine stateMachine, string animBoolName) : base(player, playerData, stateMachine, animBoolName)
+    public PlayerGroundedState(Player player, string animBoolName) : base(player, animBoolName)
     {
     }
 

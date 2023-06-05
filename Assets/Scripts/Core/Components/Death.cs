@@ -4,7 +4,6 @@ using UnityEngine;
 public class Death : CoreComponent
 {
     [SerializeField] private GameObject[] deathParticles;
-
     private ParticleManager ParticleManager =>
         particleManager ? particleManager : core.GetCoreComponent(ref particleManager);
     

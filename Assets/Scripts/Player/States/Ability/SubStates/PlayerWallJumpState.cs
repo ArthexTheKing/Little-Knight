@@ -4,7 +4,7 @@ public class PlayerWallJumpState : PlayerAbilityState
 {
     private int wallJumpDirection;
 
-    public PlayerWallJumpState(Player player, SO_PlayerData playerData, PlayerStateMachine stateMachine, string animBoolName) : base(player, playerData, stateMachine, animBoolName)
+    public PlayerWallJumpState(Player player, string animBoolName) : base(player, animBoolName)
     {
     }
 

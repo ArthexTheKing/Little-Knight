@@ -1,6 +1,6 @@
 ﻿public class PlayerCrouchMoveState : PlayerGroundedState
 {
-    public PlayerCrouchMoveState(Player player, SO_PlayerData playerData, PlayerStateMachine stateMachine, string animBoolName) : base(player, playerData, stateMachine, animBoolName)
+    public PlayerCrouchMoveState(Player player, string animBoolName) : base(player, animBoolName)
     {
     }
 

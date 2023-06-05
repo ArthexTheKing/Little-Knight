@@ -32,10 +32,15 @@ public class DeadState : State
     public override void LogicUpdate()
     {
         base.LogicUpdate();
+        AddScore();
     }
 
     public override void PhysicsUpdate()
     {
         base.PhysicsUpdate();
+    }
+    
+    public virtual void AddScore(){
+
     }
 }

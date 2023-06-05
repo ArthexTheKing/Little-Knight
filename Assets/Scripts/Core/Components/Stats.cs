@@ -7,13 +7,18 @@ public class Stats : CoreComponent
 {
     public event Action OnHealthZero;
     
-    [SerializeField] private float maxHealth;
-    private float currentHealth;
+    public float maxHealth;
+    [HideInInspector] public float currentHealth;
 
     protected override void Awake()
     {
         base.Awake();
 
+        currentHealth = maxHealth;
+    }
+
+    private void OnEnable()
+    {
         currentHealth = maxHealth;
     }
 

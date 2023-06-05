@@ -23,7 +23,7 @@ public class PlayerLedgeClimbState : PlayerState
     private bool jumpInput;
     private bool isTouchingCeiling;
 
-    public PlayerLedgeClimbState(Player player, SO_PlayerData playerData, PlayerStateMachine stateMachine, string animBoolName) : base(player, playerData, stateMachine, animBoolName)
+    public PlayerLedgeClimbState(Player player, string animBoolName) : base(player, animBoolName)
     {
     }
 
@@ -71,7 +71,7 @@ public class PlayerLedgeClimbState : PlayerState
                 isClimbing = true;
                 player.Anim.SetBool("climbLedge", true);
             }
-            else if (yInput == -1 && isHanging && !isClimbing)
+            else if (xInput == -Movement.FacingDirection && isHanging && !isClimbing)
             {
                 stateMachine.ChangeState(player.InAirState);
             }

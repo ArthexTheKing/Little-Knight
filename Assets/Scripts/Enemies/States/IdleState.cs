@@ -29,7 +29,7 @@ public class IdleState : State
     {
         base.Enter();
 
-        Movement?.SetVelocityZero();
+        Movement.SetVelocityX(0f);
         isIdleTimeOver = false;
         SetRandomIdleTime();
     }
@@ -48,7 +48,7 @@ public class IdleState : State
     {
         base.LogicUpdate();
 
-        Movement?.SetVelocityZero();
+        Movement.SetVelocityX(0f);
 
         if (Time.time >= startTime + idleTime)
         {
