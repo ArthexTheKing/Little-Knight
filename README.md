@@ -17,8 +17,9 @@ Voto ../30
 
 ## Caratteristiche del Progetto
 
-#### Nome del Gioco: 
+#### Nome del Gioco: Little Knight
 
 il progetto consiste in un gioco realizzato in Unity del tipo Metroidvania Arcade,
+
 la componente online consiste nella Leaderboard che salva con una API online il nome e il punteggio del giocatore
 (la scelta di salvataggio è facoltativa)
