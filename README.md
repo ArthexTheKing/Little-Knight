@@ -5,7 +5,7 @@ Corso di Laurea in Ingegneria Informatica sistemi Informativi
 
 Anno Accademico 2022/2023
 
-Voto ../30
+Voto 30/30
 
 ## Partecipanti:
 
